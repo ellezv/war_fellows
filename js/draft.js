@@ -32,32 +32,88 @@ var users = [{
   saveWho: 'mom',
   specialty: 'any',
   language: 'javascript',
-  avatar: 'thumbnail.png'
+  avatar: 'annaka.png'
 }, {
-  name: 'Fiona',
+  name: 'Fiona Warrior Princess',
+  gender: 'F',
+  workWell: 'no',
+  saveWho: 'mom',
+  specialty: 'design',
+  language: 'css',
+  avatar: 'fiona_warrior.jpg'
+}, {
+  name: 'Myotis',
   gender: 'F',
   workWell: 'yes',
-  saveWho: 'mom',
-  specialty: 'any',
+  saveWho: '',
+  specialty: 'project management',
   language: 'python',
-  avatar: 'fiona.jpg'
+  avatar: 'valerie.png'
 }, {
-  name: 'Paul',
+  name: 'Canuck',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
-  specialty: 'any',
-  language: 'python',
-  avatar: 'thumbnail.png'
+  specialty: 'frontend',
+  language: 'css',
+  avatar: 'adrian.png'
 }, {
-  name: 'Charlie',
+  name: 'Shriekin Desperado',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
-  specialty: 'any',
+  specialty: 'fullstack',
   language: 'python',
-  avatar: 'thumbnail.png'
-}, ];
+  avatar: 'munir.png'
+},{
+  name: 'Pirate',
+  gender: 'M',
+  workWell: 'yes',
+  saveWho: 'mom',
+  specialty: 'project management',
+  language: 'javascript',
+  avatar: 'taiwan.png'
+},{
+  name: 'Judy the Destroyer',
+  gender: 'F',
+  workWell: 'yes',
+  saveWho: 'self',
+  specialty: 'any',
+  language: 'css',
+  avatar: 'judy.png'
+},{
+  name: 'Baby Toddler',
+  gender: 'F',
+  workWell: 'no',
+  saveWho: 'mom',
+  specialty: 'fullstack',
+  language: 'python',
+  avatar: 'britt_warrior.jpg'
+},{
+  name: 'The Mighty Sam',
+  gender: 'M',
+  workWell: 'yes',
+  saveWho: 'mom',
+  specialty: 'fullstack',
+  language: 'any',
+  avatar: 'sam.jpg'
+},{
+  name: 'Athena',
+  gender: 'F',
+  workWell: 'yes',
+  saveWho: 'self',
+  specialty: 'backend',
+  language: 'javascript',
+  avatar: 'maelle.png'
+},{
+  name: 'Brunhilda',
+  gender: 'F',
+  workWell: 'yes',
+  saveWho: 'self',
+  specialty: 'frontend',
+  language: 'any',
+  avatar: 'rachael.png'
+},];
 
 window.addEventListener('load', function() {
 
