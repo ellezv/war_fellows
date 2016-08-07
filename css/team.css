@@ -34,10 +34,6 @@ main {
   display: block;
 }
 
-.featured_section button {
-  text-align: center;
-}
-
 .left {
   float: left;
   height: 300px;
