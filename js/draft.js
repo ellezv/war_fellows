@@ -10,24 +10,24 @@ var users = [{
   language: 'javascript',
   avatar: 'aaron.jpg'
 }, {
-  name: 'Britney',
+  name: 'Zenon',
   gender: 'F',
-  workWell: 'yes',
+  workWell: 'no',
   saveWho: 'mom',
-  specialty: 'any',
-  language: 'python',
-  avatar: 'britney.jpg'
+  specialty: 'frontend',
+  language: 'javascript',
+  avatar: 'britney_warrior.png'
 }, {
-  name: 'Lee',
+  name: 'Lee the Conqueror',
   gender: 'M',
   workWell: 'yes',
-  saveWho: 'mom',
-  specialty: 'any',
-  language: 'python',
-  avatar: 'thumbnail.png'
+  saveWho: 'self',
+  specialty: 'fullstack',
+  language: 'javascript',
+  avatar: 'lee.png'
 }, {
-  name: 'Kevin',
-  gender: 'M',
+  name: 'Annaka Annihilator',
+  gender: 'F',
   workWell: 'yes',
   saveWho: 'mom',
   specialty: 'any',
@@ -97,7 +97,7 @@ window.addEventListener('load', function() {
           //check if they save themselves or their mom
           if (saveWho == '' || saveWho == users[i].saveWho) {
             //check language
-            if (specialty == '' || specialty == users[i].specialty) {
+            if (specialty == 'any' || specialty == users[i].specialty) {
               //check language
               if (language == '' || language == users[i].language) {
                 resultsHtml += '<div class="person-row">\
