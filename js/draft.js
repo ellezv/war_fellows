@@ -4,49 +4,56 @@
 var users = [{
   name: 'Aaron',
   gender: 'M',
-  hobby: 'pets',
-  specialty: 'any',
+  workWell: 'yes',
+  saveWho: 'mom',
+  specialty: 'fullstack',
   language: 'javascript',
-  avatar: 'fiona.jpg'
+  avatar: 'aaron.jpg'
 }, {
   name: 'Britney',
   gender: 'F',
-  hobby: 'pets',
+  workWell: 'yes',
+  saveWho: 'mom',
   specialty: 'any',
   language: 'python',
   avatar: 'britney.jpg'
 }, {
   name: 'Lee',
   gender: 'M',
-  hobby: 'music',
+  workWell: 'yes',
+  saveWho: 'mom',
   specialty: 'any',
   language: 'python',
   avatar: 'thumbnail.png'
 }, {
   name: 'Kevin',
   gender: 'M',
-  hobby: 'sports',
+  workWell: 'yes',
+  saveWho: 'mom',
   specialty: 'any',
   language: 'javascript',
   avatar: 'thumbnail.png'
 }, {
   name: 'Fiona',
   gender: 'F',
-  hobby: 'reading',
+  workWell: 'yes',
+  saveWho: 'mom',
   specialty: 'any',
   language: 'python',
   avatar: 'fiona.jpg'
 }, {
   name: 'Paul',
   gender: 'M',
-  hobby: 'shopping',
+  workWell: 'yes',
+  saveWho: 'mom',
   specialty: 'any',
   language: 'python',
   avatar: 'thumbnail.png'
 }, {
   name: 'Charlie',
   gender: 'M',
-  hobby: 'pets',
+  workWell: 'yes',
+  saveWho: 'mom',
   specialty: 'any',
   language: 'python',
   avatar: 'thumbnail.png'
@@ -58,9 +65,13 @@ window.addEventListener('load', function() {
 
   function search() {
 
-    //get hobby
-    var hobbyField = document.getElementById('hobby');
-    var hobby = hobbyField.value;
+    //get work well
+    var workWellField = document.getElementById('workWell');
+    var workWell = workWellField.value;
+
+    //get work well
+    var saveWhoField = document.getElementById('saveWho');
+    var saveWho = saveWhoField.value;
 
     //get specialty
     var specialtyField = document.getElementById('specialty');
@@ -81,20 +92,24 @@ window.addEventListener('load', function() {
     for (var i = 0; i < usersLength; i++) {
       //check gender
       if (gender == 'A' || gender == users[i].gender) {
-        //check hobby
-        if (hobby == '' || hobby == users[i].hobby) {
-          //check language
-          if (specialty == '' || specialty == users[i].specialty) {
+        //check workWell
+        if (workWell == '' || workWell == users[i].workWell) {
+          //check if they save themselves or their mom
+          if (saveWho == '' || saveWho == users[i].saveWho) {
             //check language
-            if (language == '' || language == users[i].language) {
-              resultsHtml += '<div class="person-row">\
-                               <img src="../img/' + users[i].avatar + '" />\
-                               <div class="person-info">\
-                               <div>' + users[i].name + '</div>\
-                               <div>' + users[i].hobby + '</div></div>\
-                               <div>' + users[i].specialty + '</div></div>\
-                               <div>' + users[i].language + '</div></div>\
-                               <button>Draft</button></div>';
+            if (specialty == '' || specialty == users[i].specialty) {
+              //check language
+              if (language == '' || language == users[i].language) {
+                resultsHtml += '<div class="person-row">\
+                                 <img src="../img/' + users[i].avatar + '" />\
+                                 <div class="person-info">\
+                                 <div>' + users[i].name + '</div>\
+                                 <div>' + users[i].workWell + '</div></div>\
+                                 <div>' + users[i].saveWho + '</div></div>\
+                                 <div>' + users[i].specialty + '</div></div>\
+                                 <div>' + users[i].language + '</div></div>\
+                                 <button>Draft</button></div>';
+              }
             }
           }
         }
