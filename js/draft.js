@@ -2,19 +2,19 @@
 
 // Draft Page
 var users = [{
-  name: 'Sam',
+  name: 'Aaron',
   gender: 'M',
   hobby: 'pets',
   specialty: 'any',
   language: 'javascript',
-  avatar: 'thumbnail.png'
+  avatar: 'fiona.jpg'
 }, {
   name: 'Britney',
   gender: 'F',
   hobby: 'pets',
   specialty: 'any',
   language: 'python',
-  avatar: '../img/britney.jpg'
+  avatar: 'britney.jpg'
 }, {
   name: 'Lee',
   gender: 'M',
@@ -35,7 +35,7 @@ var users = [{
   hobby: 'reading',
   specialty: 'any',
   language: 'python',
-  avatar: 'thumbnail.png'
+  avatar: 'fiona.jpg'
 }, {
   name: 'Paul',
   gender: 'M',
@@ -88,7 +88,7 @@ window.addEventListener('load', function() {
             //check language
             if (language == '' || language == users[i].language) {
               resultsHtml += '<div class="person-row">\
-                               <img src="img/' + users[i].avatar + '" />\
+                               <img src="../img/' + users[i].avatar + '" />\
                                <div class="person-info">\
                                <div>' + users[i].name + '</div>\
                                <div>' + users[i].hobby + '</div></div>\
