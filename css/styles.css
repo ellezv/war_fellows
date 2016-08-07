@@ -1,0 +1,68 @@
+/* Styles for all pages */
+body {
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Special Elite',cursive;
+  font-size: 20px;
+  color: white;
+  cursor:pointer;
+}
+
+a:hover {
+  color:white;
+}
+
+.clearfix {
+  clear:both;
+}
+
+header {
+  background:black;
+  height:100px;
+}
+
+.inner {
+  width:960px;
+  margin: 0 auto;
+  /*outline:dotted 5px red;*/
+  height:100px;
+}
+
+.inner img {
+  float:left;
+  margin-right:30px;
+}
+
+header ul li {
+  display: inline-block;
+  margin-right:15px;
+  margin-top:56px;
+  float:right;
+  font-size:25px;
+}
+
+.container button {
+  position:relative;
+  z-index:2;
+  margin-left:450px;
+  margin-top:15px;
+  border-radius:10px;
+  height:30px;
+}
+
+button:hover {
+  background: #555;
+  color: #eee;
+  cursor:pointer;
+}
+
+footer {
+  /*outline:dotted 1px green;*/
+  width:inherit;
+  height:20px;
+  color:white;
+  text-align:center;
+}

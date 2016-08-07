@@ -1,0 +1,21 @@
+/* About Page Specific CSS */
+
+main {
+  width: 960px;
+  margin: 30px auto 30px auto;
+}
+
+section {
+  height: 300px;
+  clear: both;
+}
+
+section img {
+  box-shadow: 5px 5px 10px #d9d9d9;
+  margin-right: 40px;
+}
+
+p {
+  color: #000;
+  width: 800px;
+}
