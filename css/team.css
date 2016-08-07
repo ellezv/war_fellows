@@ -24,10 +24,30 @@ p {
   width: 800px;
 }
 
+main {
+  width: 960px;
+  margin: 30px auto;
+}
+
+.featured_section img {
+  margin-bottom: 30px;
+  display: block;
+}
+
+.featured_section button {
+  text-align: center;
+}
+
+.left {
+  float: left;
+  height: 300px;
+  width:20%;
+}
+
 .right {
   float: left;
-  height: 400px;
-  width: calc(50% - 30px);
+  height: 300px;
+  width: 60%;
   padding-left: 30px;
 }
 
@@ -38,21 +58,28 @@ p {
 }
 
 .right p {
-  height: 300px;
+  height: 110px;
   line-height: 24px;
+  width: 120%;
   overflow: auto;
+  padding-top: 10px;
+}
+
+.right ul li {
+  line-height: 1.7em;
+  font-weight: bold;
 }
 
 button {
+  margin-top: 20px;
   border: none;
-  padding: 10px 35px;
+  padding: 10px 67px;
   font-size: 18px;
   border-radius: 3px;
   cursor: pointer;
   background: #000;
   color: #fff;
   transition: 350ms all;
-  
 }
 
 button:hover {
