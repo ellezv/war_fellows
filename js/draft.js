@@ -46,7 +46,7 @@ var users = [{
   gender: 'F',
   workWell: 'yes',
   saveWho: '',
-  specialty: 'project management',
+  specialty: 'pm',
   language: 'python',
   avatar: 'valerie.png'
 }, {
@@ -70,7 +70,7 @@ var users = [{
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
-  specialty: 'project management',
+  specialty: 'pm',
   language: 'javascript',
   avatar: 'taiwan.png'
 },{
