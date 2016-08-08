@@ -6,8 +6,8 @@ var users = [{
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
-  specialty: 'fullstack',
-  language: 'javascript',
+  specialty: 'Full-Stack',
+  language: 'Javascript',
   avatar: 'aaron.jpg'
 }, {
   name: 'Zenon',
