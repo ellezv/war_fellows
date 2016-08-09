@@ -125,7 +125,7 @@ window.addEventListener('load', function() {
     var workWellField = document.getElementById('workWell');
     var workWell = workWellField.value;
 
-    //get work well
+    //get save who
     var saveWhoField = document.getElementById('saveWho');
     var saveWho = saveWhoField.value;
 
@@ -156,15 +156,16 @@ window.addEventListener('load', function() {
             if (specialty == 'any' || specialty == users[i].specialty) {
               //check language
               if (language == 'any' || language == users[i].language) {
-                resultsHtml += '<div class="person-row">\
-                                 <img src="../img/' + users[i].avatar + '" />\
-                                 <div class="person-info">\
-                                 <div>' + users[i].name + '</div>\
-                                 <div>' + users[i].workWell + '</div></div>\
-                                 <div>' + users[i].saveWho + '</div></div>\
-                                 <div>' + users[i].specialty + '</div></div>\
-                                 <div>' + users[i].language + '</div></div>\
-                                 <button>Draft</button></div>';
+                resultsHtml += '<div>\
+                                 <div class="left">\
+                                 <img align="left" src="../img/' + users[i].avatar + '" />\
+                                 <button>Draft</button></div>\
+                                 <div class="right"><ul>\
+                                 <h2>' + users[i].name + '</h2>\
+                                 <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
+                                 <li>' + 'Save Mom or Self: ' + users[i].saveWho + '</li>\
+                                 <li>' + 'Specialty: ' + users[i].specialty + '</li>\
+                                 <li>' + 'Languages: ' + users[i].language + '</li></div></div>';
               }
             }
           }
