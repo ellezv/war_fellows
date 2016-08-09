@@ -74,3 +74,161 @@ aside {
   width: 70%;
   float: right;
 }
+
+/* Global Styles */
+h3 {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Img Styles */
+img.inactive {
+  width: 200px;
+  height: 200px;
+  border: 5px solid black;
+  margin: 5px;
+  cursor: pointer;
+}
+
+img.inactive:hover {
+  width: 200px;
+  height: 200px;
+  border: 5px solid lightgrey;
+  margin: 5px;
+  cursor: pointer;
+}
+
+img.active {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #c10816;
+  margin: 5px;
+  opacity: .5;
+  cursor: pointer;
+}
+
+img.active:hover {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #c10816;
+  margin: 5px;
+  opacity: .5;
+  cursor: pointer;
+}
+
+#warriorForm {
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 75px;
+}
+
+#photos {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#photo_wrapper {
+  max-width: 900px;
+  width: 100%;
+  margin: 30px auto;
+  padding-top: 60px;
+  margin-bottom: 120px;
+}
+
+#photo_wrapper li {
+  display: inline-block;
+}
+
+#warriorListInBuilder {
+    max-width: 450px;
+    padding: 3px 0;
+    margin: 0 auto;
+}
+
+#warriorListInBuilder li {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px;
+  font-size: 20px;
+  margin: 5px;
+}
+
+#selectedWarriors {
+  max-width: 940px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 10px;
+  position: fixed;
+  background-color: #ccc;
+  opacity: .8;
+  bottom: 0;
+  z-index: 1;
+}
+
+#submitButton {
+  border-radius: 5%;
+  background-color: #111111;
+  color: white;
+  width: 150px;
+  height: 50px;
+  position: absolute;
+  right: 10%;
+  bottom: 37.5%;
+  border: 1px solid white;
+}
+
+.notSelected {
+  display: none;
+}
+
+li:hover div.notSelected {
+  display: block;;
+  position: absolute;;
+  width: 200px;
+  height: 50px;
+  margin-top: -63px;
+  margin-left: 10px;
+  background-color: black;
+  opacity: 0.7;
+  text-align: center;
+  }
+
+li:hover .notSelected p {
+  display: inline;
+  position: relative;
+  width: 150px;
+  margin: 0px auto;
+  font-size: 30px;
+  color: white;
+  opacity: .7;
+}
+
+div.selected {
+  display: block;;
+  position: absolute;;
+  width: 200px;
+  height: 50px;
+  margin-top: -63px;
+  margin-left: 10px;
+  background-color: black;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.selected p {
+  display: inline;
+  position: relative;
+  width: 150px;
+  margin: 0px auto;
+  font-size: 30px;
+  text-shadow: 0 0 5px black;
+  color: #c10816;
+  z-index: 8;
+  }
