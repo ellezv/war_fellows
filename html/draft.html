@@ -33,12 +33,20 @@
              </select>
            </div>
            <div class="row">
-             <label>Work Well With Others</label>
-             <input type="text" id="workWell" />
+             <label>Works Well With Others?</label>
+             <select id="workWell">
+               <option value="noanswer">Any</option>
+               <option value="yes">Yes</option>
+               <option value="no">No</option>
+             </select>
            </div>
            <div class="row">
              <label>Save Mom or Self?</label>
-             <input type="text" id="saveWho" />
+             <select id="saveWho">
+               <option value="noanswer">Any</option>
+               <option value="mom">Mom</option>
+               <option value="self">Self</option>
+             </select>
            </div>
            <div class="row">
              <label>Specialty</label>
@@ -51,9 +59,14 @@
                <option value="pm">Project Management</option>
              </select>
            </div>
-            <div class="row">
+           <div class="row">
              <label>Languages</label>
-             <input type="text" id="language" />
+             <select id="language">
+               <option value="any">Any</option>
+               <option value="python">Python</option>
+               <option value="javascript">JavaScript</option>
+               <option value="css">CSS</option>
+             </select>
            </div>
            <div class="row">
              <button id="searchBtn">Search</button>
@@ -94,9 +107,6 @@
         </section>
       </section>
     </main>
-    <footer>
-      War &copy 2016
-    </footer>
   </body>
   <script src="../js/draft.js"></script>
 </html>
