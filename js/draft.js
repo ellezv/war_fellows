@@ -179,3 +179,142 @@ window.addEventListener('load', function() {
 
   searchBtn.addEventListener('click', search);
 });
+
+// TEST draft
+
+var warriorNamesArray = ['britney', 'sam', 'lee', 'fiona', 'britt'];
+
+var form = document.getElementById('warriorForm');
+var userNameInStorage = localStorage.getItem('userName');
+var updateList = document.getElementById('warriorListInBuilder');
+
+var allUsers = [];
+var allUsersRanked = [];
+
+var warriorArray = [];
+var selectedWarriors = [];
+var warriorDisplayNames = [];
+var userWarriors = [];
+
+function addIngredients () {
+  for(var i = 0; i < warriorNamesArray.length; i++) {
+    var currentWarrior = document.getElementById(warriorNamesArray[i]);
+    warriorArray.push(currentWarrior);
+    document.getElementById(warriorNamesArray[i] + 'Photo').addEventListener('click', handleImageSelection);
+  };
+};
+
+addIngredients();
+
+function handleImageSelection() {
+  var alt = document.getElementById(this.alt);
+  if (this.className === 'inactive') {
+    this.className = 'active';
+    alt.checked = true;
+    selectedWarriors.push(alt.value);
+    warriorDisplayNames.push(alt.name);
+    showIngredients();
+    var inlineLabel = this.nextSibling;
+    inlineLabel.className = 'selected';
+  } else {
+    this.className = 'inactive';
+    alt.checked = false;
+    var inlineLabel = this.nextSibling;
+    inlineLabel.className = 'notSelected';
+    for (var i = 0; i < selectedWarriors.length; i++) {
+      if(alt.value === selectedWarriors[i]) {
+        selectedWarriors.splice(i,1);
+        warriorDisplayNames.splice(i,1);
+      }
+    }
+  }
+  repopulateList();
+  showButton();
+  localStorage.setItem('selectedWarriors',JSON.stringify(selectedWarriors));
+  localStorage.setItem('warriorDisplayNames',JSON.stringify(warriorDisplayNames));
+}
+
+window.onload = function () {
+  if (localStorage.getItem('selectedWarriors') != '' && localStorage.getItem('selectedWarriors') != null) {
+    selectedWarriors = JSON.parse(localStorage.getItem('selectedWarriors'));
+    warriorDisplayNames = JSON.parse(localStorage.getItem('warriorDisplayNames'));
+    for(var i = 0; i < selectedWarriors.length; i++) {
+      var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
+      elImg.className = 'active';
+      var elInput = document.getElementById(selectedWarriors[i]);
+      elInput.checked = true;
+    }
+  }
+  showIngredients();
+  repopulateList();
+  showButton();
+};
+
+function UserBuilder(userName, filePath, ingredients) {
+  this.userName = userName;
+  this.filePath = filePath;
+  for(var i = 0; i < warriorNamesArray.length; i++) {
+    this[warriorNamesArray[i]] = ingredients[i];
+  }
+  allUsers.push(this);
+  this.ingredients = ingredients;
+  this.matchesWithNewUserTally = 0;
+}
+
+form.addEventListener('submit', handleNachoSubmit);
+
+function showButton() {
+  if (selectedWarriors.length > 1) {
+    var submitButton = document.getElementById('submitButton');
+    submitButton.className = '';
+  } else {
+    var submitButton = document.getElementById('submitButton');
+    submitButton.className = 'hidden';
+  }
+}
+
+function repopulateList() {
+  updateList.innerHTML = '';
+  for (var i = 0; i < selectedWarriors.length; i++) {
+    var liEl = document.createElement('li');
+    liEl.textContent = warriorDisplayNames[i];
+    updateList.appendChild(liEl);
+  }
+}
+
+function showIngredients() {
+  var endOfList = document.getElementById('endOfSelectedWarriors');
+  updateList.className = '';
+}
+
+function setupNewUser() {
+  for (var i = 0; i < warriorNamesArray.length; i++) {
+    for (var j = 0; j < selectedWarriors.length; j++) {
+      if(warriorNamesArray[i] === selectedWarriors[j]) {
+        userWarriors[i] = true;
+        break;
+      } else {
+        userWarriors[i] = false;
+      }
+    }
+  }
+}
+
+function handleNachoSubmit(event) {
+  event.preventDefault();
+
+  setupNewUser();
+  var newUser = new UserBuilder(userNameInStorage,'', userWarriors);
+
+  localStorage.setItem('allUsers',JSON.stringify(allUsersRanked));
+  selectedWarriors = [];
+  warriorDisplayNames = [];
+  localStorage.setItem('selectedWarriors', selectedWarriors);
+  localStorage.setItem('warriorDisplayNames', warriorDisplayNames);
+
+  redirectToResults();
+}
+
+function redirectToResults() {
+  window.location.href = 'team.html';
+}
