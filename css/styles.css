@@ -57,10 +57,3 @@ button:hover {
   color: #eee;
   cursor:pointer;
 }
-
-footer {
-  width:inherit;
-  height:20px;
-  color:white;
-  text-align:center;
-}

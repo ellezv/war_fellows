@@ -2,6 +2,14 @@
 
 // Draft Page
 var users = [{
+  name: 'The Mighty Sam',
+  gender: 'M',
+  workWell: 'yes',
+  saveWho: 'mom',
+  specialty: 'fullstack',
+  language: 'any',
+  avatar: 'sam.jpg'
+},{
   name: 'Aaron',
   gender: 'M',
   workWell: 'yes',
@@ -45,7 +53,7 @@ var users = [{
   name: 'Myotis',
   gender: 'F',
   workWell: 'yes',
-  saveWho: '',
+  saveWho: 'noanswer',
   specialty: 'pm',
   language: 'python',
   avatar: 'valerie.png'
@@ -90,14 +98,6 @@ var users = [{
   language: 'python',
   avatar: 'britt_warrior.jpg'
 },{
-  name: 'The Mighty Sam',
-  gender: 'M',
-  workWell: 'yes',
-  saveWho: 'mom',
-  specialty: 'fullstack',
-  language: 'any',
-  avatar: 'sam.jpg'
-},{
   name: 'Athena',
   gender: 'F',
   workWell: 'yes',
@@ -125,7 +125,7 @@ window.addEventListener('load', function() {
     var workWellField = document.getElementById('workWell');
     var workWell = workWellField.value;
 
-    //get work well
+    //get save who
     var saveWhoField = document.getElementById('saveWho');
     var saveWho = saveWhoField.value;
 
@@ -149,22 +149,23 @@ window.addEventListener('load', function() {
       //check gender
       if (gender == 'A' || gender == users[i].gender) {
         //check workWell
-        if (workWell == '' || workWell == users[i].workWell) {
+        if (workWell == 'noanswer' || workWell == users[i].workWell) {
           //check if they save themselves or their mom
-          if (saveWho == '' || saveWho == users[i].saveWho) {
+          if (saveWho == 'noanswer' || saveWho == users[i].saveWho) {
             //check language
             if (specialty == 'any' || specialty == users[i].specialty) {
               //check language
-              if (language == '' || language == users[i].language) {
-                resultsHtml += '<div class="person-row">\
-                                 <img src="../img/' + users[i].avatar + '" />\
-                                 <div class="person-info">\
-                                 <div>' + users[i].name + '</div>\
-                                 <div>' + users[i].workWell + '</div></div>\
-                                 <div>' + users[i].saveWho + '</div></div>\
-                                 <div>' + users[i].specialty + '</div></div>\
-                                 <div>' + users[i].language + '</div></div>\
-                                 <button>Draft</button></div>';
+              if (language == 'any' || language == users[i].language) {
+                resultsHtml += '<div>\
+                                 <div class="left">\
+                                 <img align="left" src="../img/' + users[i].avatar + '" />\
+                                 <button>Draft</button></div>\
+                                 <div class="right"><ul>\
+                                 <h2>' + users[i].name + '</h2>\
+                                 <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
+                                 <li>' + 'Save Mom or Self: ' + users[i].saveWho + '</li>\
+                                 <li>' + 'Specialty: ' + users[i].specialty + '</li>\
+                                 <li>' + 'Languages: ' + users[i].language + '</li></div></div>';
               }
             }
           }
