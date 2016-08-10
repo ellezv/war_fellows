@@ -239,3 +239,66 @@ div.selected {
   color: #c10816;
   z-index: 8;
   }
+/*filter section*/
+.row{
+  height:35px;
+  width:200px;
+  margin-bottom:20px;
+  color:white;
+  font-size:20px;
+  font-family: 'Play', sans-serif;
+  margin-left:40px;
+}
+.filter{
+  background-color:#696969;
+  height:400px;
+  width:280px;
+  border-radius:20px 20px 20px 20px;
+}
+#gender{
+  margin-top:20px;
+  border-radius:10%;
+  width:100px;
+}
+#workWell{
+  margin-top:10px;
+  border-radius:10%;
+  width:100px;
+}
+#saveWho{
+  margin-top:10px;
+  border-radius:10%;
+  width:100px;
+}
+#specialty{
+  margin-top:10px;
+  border-radius:10%;
+  width:100px;
+}
+#language{
+  margin-top:10px;
+  border-radius:10%;
+  width:100px;
+}
+button {
+  border: none;
+  padding: 10px 65px;
+  font-size: 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  transition: 350ms all;
+  
+}
+button:hover {
+  background: #555;
+  color: #eee;
+}
+.active {
+  background: green;
+}
+aside {
+  width: 20%;
+  float: left;
+}
