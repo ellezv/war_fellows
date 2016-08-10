@@ -145,9 +145,8 @@ var users = [{
   avatar: 'rachael.png'
 },];
 
-
+var results = document.getElementById('results');
 window.onload = function() {
-  var results = document.getElementById('results');
   var fieldResults = document.getElementById('warrior_field_set');
   var fieldResultsHtml;
   var photoResults = document.getElementById('photo_wrapper');
@@ -178,61 +177,6 @@ window.onload = function() {
 
     var resultsHtml = '';
     var usersLength = users.length;
-
-    // for (var j = 0; j < usersLength; j++) {
-    //   if (gender == 'A' || gender == users[j].gender) {
-    //     //check workWell
-    //     if (workWell == 'noanswer' || workWell == users[j].workWell) {
-    //       //check if they save themselves or their mom
-    //       if (saveWho == 'noanswer' || saveWho == users[j].saveWho) {
-    //         //check language
-    //         if (specialty == 'any' || specialty == users[j].specialty) {
-    //           //check language
-    //           if (language == 'any' || language == users[j].language) {
-    //             console.log('hey hey');
-    //             fieldResultsHtml += '<input type="checkbox" name="' + users[j].imageName + '" value="' + users[j].imageName + '"id="' + users[j].imageName + '"class="hidden">';
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // fieldResults.innerHTML = fieldResultsHtml;
-    //
-    //
-    //
-    // for (var k = 0; k < usersLength; k++) {
-    //   if (gender == 'A' || gender == users[k].gender) {
-    //     //check workWell
-    //     if (workWell == 'noanswer' || workWell == users[k].workWell) {
-    //       //check if they save themselves or their mom
-    //       if (saveWho == 'noanswer' || saveWho == users[k].saveWho) {
-    //         //check language
-    //         if (specialty == 'any' || specialty == users[k].specialty) {
-    //           //check language
-    //           if (language == 'any' || language == users[k].language) {
-    //             console.log('bye bye');
-    //             photoResultsHtml += '<li>\
-    //                                   <img class="inactive" src="../img/' + users[k].avatar + '"id="' + users[k].imageNamePhoto + '"alt="' + users[k].imageName + '" />\
-    //                                   <div class="notSelected">\
-    //                                     <p>Drafted</p>\
-    //                                   </div>\
-    //                                 </li>';
-    //
-    //
-    //
-    //
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    // photoResults.innerHTML = photoResultsHtml;
-    //
-
-    // addWarriors();
-
 
     for (var i = 0; i < usersLength; i++) {
       //check gender
@@ -274,15 +218,16 @@ window.onload = function() {
     }
     results.innerHTML = resultsHtml;
   }
-
   search();
   addWarriors();
-
 };
 
 window.addEventListener('load', function() {
-
   var results = document.getElementById('results');
+  var fieldResults = document.getElementById('warrior_field_set');
+  var fieldResultsHtml;
+  var photoResults = document.getElementById('photo_wrapper');
+  var photoResultsHtml;
 
   function search() {
 
@@ -323,15 +268,13 @@ window.addEventListener('load', function() {
               if (language == 'any' || language == users[i].language) {
                 resultsHtml += '<div>\
                                  <div class="left">\
-                                   <form class="warriorForm">\
-                                   <fieldset>\
-                                       <input type="checkbox" name="' + users[i].imageName + '" value="' + users[i].imageName + '"id="' + users[i].imageName + '"class="hidden" >\
-                                     </fieldset>\
-                                   </form>\
                                    <ul>\
-                                     <li><img align="left" checked="false" class="inactive" src="../img/' + users[i].avatar + '"id="' + users[i].imageNamePhoto + '"alt="' + users[i].imageName + '" />\
-                                       <div class="notSelected"><p>Drafted</p></div>\
-                                     </li>\
+                                    <li>\
+                                     <img class="inactive" src="../img/' + users[i].avatar + '"id="' + users[i].imageNamePhoto + '"alt="' + users[i].imageName + '" />\
+                                     <div class="notSelected">\
+                                       <p>Drafted</p>\
+                                     </div>\
+                                   </li>\
                                   </ul>\
                                 </div>\
                                 <div class="right">\
@@ -352,17 +295,13 @@ window.addEventListener('load', function() {
     }
     results.innerHTML = resultsHtml;
   }
-
+  search();
+  addWarriors();
   var searchBtn = document.getElementById('searchBtn');
-
   searchBtn.addEventListener('click', search);
 });
 
-
 // SANDBOXING
-
-// Store all the warriors
-// var warriorNamesArray = [];
 
 // Get the warrior form with checkboxes
 var form = document.getElementsByClassName('warriorForm');
@@ -420,7 +359,6 @@ function addWarriors () {
 
 addWarriors();
 
-
 window.onload = function () {
   if (localStorage.getItem('selectedWarriors') != '' && localStorage.getItem('selectedWarriors') != null) {
     selectedWarriors = JSON.parse(localStorage.getItem('selectedWarriors'));
@@ -436,7 +374,6 @@ window.onload = function () {
   repopulateList();
   showButton();
 };
-
 
 function showButton() {
   if (selectedWarriors.length > 1) {
@@ -464,16 +401,13 @@ function showWarriors() {
 
 function handleWarriorSubmit(event) {
   event.preventDefault();
-
   selectedWarriors = [];
   warriorDisplayNames = [];
   localStorage.setItem('selectedWarriors', selectedWarriors);
   localStorage.setItem('warriorDisplayNames', warriorDisplayNames);
-
   redirectToResults();
 }
 form.addEventListener('submit', handleWarriorSubmit);
-
 
 function redirectToResults() {
   window.location.href = 'team.html';
