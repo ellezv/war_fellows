@@ -75,7 +75,6 @@ aside {
   float: right;
 }
 
-/* Global Styles */
 h3 {
   margin: 0 auto;
   text-align: center;
@@ -86,7 +85,7 @@ h3 {
   display: none;
 }
 
-/* Img Styles */
+/* Styles for the checked images */
 img.inactive {
   width: 200px;
   height: 200px;
@@ -164,10 +163,10 @@ img.active:hover {
   max-width: 940px;
   width: 100%;
   margin: auto 0;
-  padding: 20px 10px;
+  padding: 5px 10px;
   position: fixed;
   background-color: #ccc;
-  opacity: .8;
+  opacity: .75;
   bottom: 0;
   z-index: 1;
 }

@@ -1,9 +1,8 @@
 'use strict';
 
-var selectedWarriors = localStorage.getItem('selectedWarriors');
 
 
-// 
+//
 //
 // function localStorageParsed() {
 //   var warriorsParsed = JSON.parse(localStorage.selectedWarriors);
@@ -12,16 +11,16 @@ var selectedWarriors = localStorage.getItem('selectedWarriors');
 // }
 //
 //
-// window.onload = function() {
-//   // Retrieve selectedWarriors
-//   var selectedWarriors = localStorage.getItem('selectedWarriors');
-//
-//   if (selectedWarriors != "undefined" || selectedWarriors != "null") {
-//     document.getElementById('welcomeMessage').innerHTML = "Hello " + selectedWarriors + "!";
-//   } else {
-//     document.getElementById('welcomeMessage').innerHTML = "Hello!";
-//   }
-// }
+window.onload = function() {
+  // Retrieve selectedWarriors
+  var selectedWarriors = localStorage.getItem('selectedWarriors');
+
+  if (selectedWarriors != "undefined" || selectedWarriors != "null") {
+    document.getElementById('welcomeMessage').innerHTML = "Hello " + selectedWarriors + "!";
+  } else {
+    document.getElementById('welcomeMessage').innerHTML = "Hello!";
+  }
+}
 
 // function addStorage() {
 //     var key = document.getElementById("storageKey");
