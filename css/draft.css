@@ -157,18 +157,26 @@ img.active:hover {
   padding: 3px;
   font-size: 20px;
   margin: 5px;
+  color: #fff;
 }
 
 #selectedWarriors {
-  max-width: 940px;
+  max-width: 200px;
+  height: 400px;
   width: 100%;
   margin: auto 0;
   padding: 5px 10px;
   position: fixed;
-  background-color: #ccc;
+  background-color: #000;
   opacity: .75;
-  bottom: 0;
+  right: 0;
   z-index: 1;
+}
+
+#selectedWarriors h3 {
+  color: #fff;
+  padding-top: 20px;
+  font-weight: bold;
 }
 
 #submitButton {
