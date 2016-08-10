@@ -158,8 +158,7 @@ window.addEventListener('load', function() {
               if (language == 'any' || language == users[i].language) {
                 resultsHtml += '<div>\
                                  <div class="left">\
-                                 <img align="left" src="../img/' + users[i].avatar + '" />\
-                                 <button>Draft</button></div>\
+                                 <img align="left" src="../img/' + users[i].avatar + '" /></div>\
                                  <div class="right"><ul>\
                                  <h2>' + users[i].name + '</h2>\
                                  <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
@@ -182,29 +181,33 @@ window.addEventListener('load', function() {
 
 // TEST draft
 
+// Store all the warriors
 var warriorNamesArray = ['britney', 'sam', 'lee', 'fiona', 'britt'];
 
+// Get the warrior form with checkboxes
 var form = document.getElementById('warriorForm');
-var userNameInStorage = localStorage.getItem('userName');
+
+// Get the list of warriors in the "Your war team" section
 var updateList = document.getElementById('warriorListInBuilder');
 
-var allUsers = [];
-var allUsersRanked = [];
-
+// Store checkboxes html info
 var warriorArray = [];
-var selectedWarriors = [];
-var warriorDisplayNames = [];
-var userWarriors = [];
 
-function addIngredients () {
-  for(var i = 0; i < warriorNamesArray.length; i++) {
+// Store the selected or checked warriors
+var selectedWarriors = [];
+
+// Displaying the names of the selected warriors
+var warriorDisplayNames = [];
+
+function addWarriors () {
+  for (var i = 0; i < warriorNamesArray.length; i++) {
     var currentWarrior = document.getElementById(warriorNamesArray[i]);
     warriorArray.push(currentWarrior);
     document.getElementById(warriorNamesArray[i] + 'Photo').addEventListener('click', handleImageSelection);
   };
 };
 
-addIngredients();
+addWarriors();
 
 function handleImageSelection() {
   var alt = document.getElementById(this.alt);
@@ -213,7 +216,7 @@ function handleImageSelection() {
     alt.checked = true;
     selectedWarriors.push(alt.value);
     warriorDisplayNames.push(alt.name);
-    showIngredients();
+    showWarriors();
     var inlineLabel = this.nextSibling;
     inlineLabel.className = 'selected';
   } else {
@@ -245,23 +248,12 @@ window.onload = function () {
       elInput.checked = true;
     }
   }
-  showIngredients();
+  showWarriors();
   repopulateList();
   showButton();
 };
 
-function UserBuilder(userName, filePath, ingredients) {
-  this.userName = userName;
-  this.filePath = filePath;
-  for(var i = 0; i < warriorNamesArray.length; i++) {
-    this[warriorNamesArray[i]] = ingredients[i];
-  }
-  allUsers.push(this);
-  this.ingredients = ingredients;
-  this.matchesWithNewUserTally = 0;
-}
-
-form.addEventListener('submit', handleNachoSubmit);
+form.addEventListener('submit', handleWarriorSubmit);
 
 function showButton() {
   if (selectedWarriors.length > 1) {
@@ -282,31 +274,14 @@ function repopulateList() {
   }
 }
 
-function showIngredients() {
+function showWarriors() {
   var endOfList = document.getElementById('endOfSelectedWarriors');
   updateList.className = '';
 }
 
-function setupNewUser() {
-  for (var i = 0; i < warriorNamesArray.length; i++) {
-    for (var j = 0; j < selectedWarriors.length; j++) {
-      if(warriorNamesArray[i] === selectedWarriors[j]) {
-        userWarriors[i] = true;
-        break;
-      } else {
-        userWarriors[i] = false;
-      }
-    }
-  }
-}
-
-function handleNachoSubmit(event) {
+function handleWarriorSubmit(event) {
   event.preventDefault();
 
-  setupNewUser();
-  var newUser = new UserBuilder(userNameInStorage,'', userWarriors);
-
-  localStorage.setItem('allUsers',JSON.stringify(allUsersRanked));
   selectedWarriors = [];
   warriorDisplayNames = [];
   localStorage.setItem('selectedWarriors', selectedWarriors);

@@ -1,0 +1,71 @@
+'use strict';
+
+// var selectedWarriors = localStorage.getItem('selectedWarriors');
+
+
+
+
+// function localStorageParsed() {
+//   var warriorsParsed = JSON.parse(localStorage.selectedWarriors);
+//   selectedWarriors = warriorsParsed;
+//   console.log('Storage');
+// // }
+// window.onload = function() {
+//
+//   // Retrieve selectedWarriors
+//   var selectedWarriors = localStorage.getItem('selectedWarriors');
+//
+//   if (selectedWarriors != "undefined" || selectedWarriors != "null") {
+//     document.getElementById('welcomeMessage').innerHTML = "Hello " + selectedWarriors + "!";
+//   } else
+//     document.getElementById('welcomeMessage').innerHTML = "Hello!";
+//   }
+// }
+
+function addStorage()
+   {
+      var key = document.getElementById("storageKey");
+      var data = document.getElementById("storageData");
+
+      /* Set the local storage item */
+      if ("localStorage" in window)
+      {
+         localStorage.setItem(key.value, data.value);
+         location.reload();
+      }
+      else
+      {
+         alert("no localStorage in window");
+      }
+
+      /* Set the session storage item */
+      if ("sessionStorage" in window)
+      {
+         sessionStorage.setItem(key.value, data.value);
+         location.reload();
+      }
+      else
+      {
+         alert("no sessionStorage in window");
+      }
+   }
+   
+window.onload = function()
+  {
+     var localhtml = "";
+     var sessionhtml = "";
+
+     /* Get the local storage item */
+     for (var i = 0; i < localStorage.length; i++)
+     {
+        localhtml += "<li>" + localStorage.key(i) + " : " + localStorage.getItem(localStorage.key(i)) + "</li>";
+     }
+     document.getElementById("localStorageData").innerHTML = localhtml;
+
+     /* Get the session storage item */
+     for (var j = 0; j < sessionStorage.length; j++)
+     {
+        sessionhtml += "<li>" + sessionStorage.key(j) + " : " + sessionStorage.getItem(sessionStorage.key(j)) + "</li>";
+     }
+     document.getElementById("sessionStorageData").innerHTML = sessionhtml;
+  }
