@@ -163,7 +163,7 @@ img.active:hover {
 #selectedWarriors {
   max-width: 940px;
   width: 100%;
-  margin: 0 auto;
+  margin: auto 0;
   padding: 20px 10px;
   position: fixed;
   background-color: #ccc;

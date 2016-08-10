@@ -3,6 +3,8 @@
 // Draft Page
 var users = [{
   name: 'The Mighty Sam',
+  imageName: 'sam',
+  imageNamePhoto: 'samPhoto',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
@@ -158,13 +160,21 @@ window.addEventListener('load', function() {
               if (language == 'any' || language == users[i].language) {
                 resultsHtml += '<div>\
                                  <div class="left">\
-                                 <img align="left" src="../img/' + users[i].avatar + '" /></div>\
-                                 <div class="right"><ul>\
-                                 <h2>' + users[i].name + '</h2>\
-                                 <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
-                                 <li>' + 'Save Mom or Self: ' + users[i].saveWho + '</li>\
-                                 <li>' + 'Specialty: ' + users[i].specialty + '</li>\
-                                 <li>' + 'Languages: ' + users[i].language + '</li></div></div>';
+                                   <input type="checkbox" name="' + users[i].imageName + '" value="' + users[i].imageName + '"id="' + users[i].imageName + '"class="hidden" >\
+                                     <ul>\
+                                       <li><img align="left" class="inactive" src="../img/' + users[i].avatar + '"id="' + users[i].imageNamePhoto + '"alt="' + users[i].imageName + '" />\
+                                         <div class="notSelected"><p>Drafted</p></div>\
+                                       </li>\
+                                    </ul>\
+                                  </div>\
+                                  <div class="right"><ul>\
+                                    <h2>' + users[i].name + '</h2>\
+                                    <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
+                                    <li>' + 'Save Mom or Self: ' + users[i].saveWho + '</li>\
+                                    <li>' + 'Specialty: ' + users[i].specialty + '</li>\
+                                    <li>' + 'Languages: ' + users[i].language + '</li>\
+                                  </ul></div>\
+                               </div>';
               }
             }
           }
@@ -201,9 +211,9 @@ var warriorDisplayNames = [];
 
 function addWarriors () {
   for (var i = 0; i < warriorNamesArray.length; i++) {
-    var currentWarrior = document.getElementById(warriorNamesArray[i]);
+    var currentWarrior = document.getElementById(users[i].imageNamePhoto);
     warriorArray.push(currentWarrior);
-    document.getElementById(warriorNamesArray[i] + 'Photo').addEventListener('click', handleImageSelection);
+    document.getElementById(users[i].imageNamePhoto).addEventListener('click', handleImageSelection);
   };
 };
 
@@ -222,7 +232,7 @@ function handleImageSelection() {
   } else {
     this.className = 'inactive';
     alt.checked = false;
-    var inlineLabel = this.nextSibling;
+    inlineLabel = this.nextSibling;
     inlineLabel.className = 'notSelected';
     for (var i = 0; i < selectedWarriors.length; i++) {
       if(alt.value === selectedWarriors[i]) {
@@ -292,4 +302,6 @@ function handleWarriorSubmit(event) {
 
 function redirectToResults() {
   window.location.href = 'team.html';
+  localStorage.setItem('selectedWarriors', selectedWarriors);
+  localStorage.setItem('warriorDisplayNames', warriorDisplayNames);
 }
