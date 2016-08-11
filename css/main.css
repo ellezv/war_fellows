@@ -1,74 +1,6 @@
 
 /* Main Page Specific CSS */
-
-.container {
-  width: 960px;
-  margin: 30px auto;
-  outline:dotted 5 px;
-  position:relative;
-  overflow:hidden;
-  height:700px;
-  display:block-inline;
-}
-
-.container h2 {
-  width:300px;
-  height:20px;
-  color:white;
-  z-index:2;
-  margin-top:150px;
-  position:relative;
-  z-index:2;
-  margin-top:200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.container p {
-  width:300px;
-  height:150px;
-  color:white;
-  position: relative;
-  z-index:2;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:8px;
-  font-size:18px;
-  text-align:center;
-
-}
-
-.container img {
-  position:absolute;
-  opacity:0.5;
-  width:960px;
-  left: 0px;
-  top:0px;
-  height:700px;
-  z-index:-1;
-}
-
-/* Video */
-
-.fullscreen-bg {
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  /*z-index: -100;*/
-}
-
-.fullscreen-bg__video {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -100;
-}
-
+/*button*/
  #cta {
   font-family:'Play',sans-serif;
   font-weight: bold;
@@ -84,31 +16,52 @@
   bottom: 40%;
   transition:all .5s;
   left:40%
-
+}
+/* Video */
+.fullscreen-bg {
+  position: relative;
+  overflow: hidden;
+}
+.fullscreen-bg__video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
 }
 
-@media (min-aspect-ratio: 16/9) {
+
+/*@media (min-aspect-ratio: 16/9) {
   .fullscreen-bg__video {
     height: 300%;
     top: -100%;
   }
-}
+}*/
 
 @media (max-aspect-ratio: 16/9) {
   .fullscreen-bg__video {
-    width: 300%;
+    width: 200%;
     left: -100%;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   .fullscreen-bg {
-    background: url('../img/main_background.jpg') center center / cover no-repeat;
+    background: url('../img/main_background.jpg')
+    center center / cover no-repeat;
+    width:100%;
+    min-height:650px;
+    overflow: hidden;
   }
   .fullscreen-bg__video {
     display: none;
   }
+  #cta{
+    width:40%;
+    height:40%;
+  }
+
 }
+
 
 /* Video Background Specific HTML */
 
