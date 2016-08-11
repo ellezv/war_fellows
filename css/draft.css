@@ -75,7 +75,6 @@ aside {
   float: right;
 }
 
-/* Global Styles */
 h3 {
   margin: 0 auto;
   text-align: center;
@@ -86,7 +85,7 @@ h3 {
   display: none;
 }
 
-/* Img Styles */
+/* Styles for the checked images */
 img.inactive {
   width: 200px;
   height: 200px;
@@ -158,18 +157,26 @@ img.active:hover {
   padding: 3px;
   font-size: 20px;
   margin: 5px;
+  color: #fff;
 }
 
 #selectedWarriors {
-  max-width: 940px;
+  max-width: 200px;
+  height: 400px;
   width: 100%;
-  margin: 0 auto;
-  padding: 20px 10px;
+  margin: auto 0;
+  padding: 5px 10px;
   position: fixed;
-  background-color: #ccc;
-  opacity: .8;
-  bottom: 0;
+  background-color: #000;
+  opacity: .75;
+  right: 0;
   z-index: 1;
+}
+
+#selectedWarriors h3 {
+  color: #fff;
+  padding-top: 20px;
+  font-weight: bold;
 }
 
 #submitButton {
@@ -232,7 +239,9 @@ div.selected {
   color: #c10816;
   z-index: 8;
   }
+
 /*filter section*/
+
 .row{
   height:35px;
   width:200px;
@@ -242,37 +251,45 @@ div.selected {
   font-family: 'Play', sans-serif;
   margin-left:40px;
 }
+
 .filter{
   background-color:#696969;
-  height:400px;
-  width:280px;
+  height:350px;
+  width:260px;
   border-radius:20px 20px 20px 20px;
+  margin-right: 30px;
 }
+
 #gender{
   margin-top:20px;
   border-radius:10%;
   width:100px;
 }
+
 #workWell{
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
+
 #saveWho{
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
+
 #specialty{
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
+
 #language{
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
+
 button {
   border: none;
   padding: 10px 65px;
@@ -282,15 +299,18 @@ button {
   background: #000;
   color: #fff;
   transition: 350ms all;
-  
+
 }
+
 button:hover {
   background: #555;
   color: #eee;
 }
+
 .active {
   background: green;
 }
+
 aside {
   width: 20%;
   float: left;

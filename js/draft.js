@@ -1,8 +1,42 @@
 'use strict';
 
+// Store the warrior images and associated attributes.
+var warriorNamesArray = [];
+
+// Get the warrior form with checkboxes
+var form = document.getElementsByClassName('warriorForm');
+
+// Get the list of warriors in the "Your war team" section
+var updateList = document.getElementById('warriorListInBuilder');
+
+// Store checkboxes html info
+var warriorArray = [];
+
+// Store the selected or checked warriors
+var selectedWarriors = [];
+
+// Displaying the names of the selected warriors
+var warriorDisplayNames = [];
+
+var results = document.getElementById('results');
+
+var currentWarrior;
+
 // Draft Page
 var users = [{
+  name: 'Lee the Conqueror',
+  imageName: 'lee',
+  imageNamePhoto: 'leePhoto',
+  gender: 'M',
+  workWell: 'yes',
+  saveWho: 'self',
+  specialty: 'fullstack',
+  language: 'javascript',
+  avatar: 'lee.png'
+},{
   name: 'The Mighty Sam',
+  imageName: 'sam',
+  imageNamePhoto: 'samPhoto',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
@@ -11,6 +45,8 @@ var users = [{
   avatar: 'sam.jpg'
 },{
   name: 'Aaron',
+  imageName: 'aaron',
+  imageNamePhoto: 'aaronPhoto',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
@@ -19,6 +55,8 @@ var users = [{
   avatar: 'aaron.jpg'
 }, {
   name: 'Zenon',
+  imageName: 'britney',
+  imageNamePhoto: 'britneyPhoto',
   gender: 'F',
   workWell: 'no',
   saveWho: 'mom',
@@ -26,15 +64,9 @@ var users = [{
   language: 'javascript',
   avatar: 'britney_warrior.png'
 }, {
-  name: 'Lee the Conqueror',
-  gender: 'M',
-  workWell: 'yes',
-  saveWho: 'self',
-  specialty: 'fullstack',
-  language: 'javascript',
-  avatar: 'lee.png'
-}, {
   name: 'Annaka Annihilator',
+  imageName: 'annaka',
+  imageNamePhoto: 'annakaPhoto',
   gender: 'F',
   workWell: 'yes',
   saveWho: 'mom',
@@ -43,6 +75,8 @@ var users = [{
   avatar: 'annaka.png'
 }, {
   name: 'Fiona Warrior Princess',
+  imageName: 'fiona',
+  imageNamePhoto: 'fionaPhoto',
   gender: 'F',
   workWell: 'no',
   saveWho: 'mom',
@@ -51,6 +85,8 @@ var users = [{
   avatar: 'fiona_warrior.jpg'
 }, {
   name: 'Myotis',
+  imageName: 'val',
+  imageNamePhoto: 'valPhoto',
   gender: 'F',
   workWell: 'yes',
   saveWho: 'noanswer',
@@ -59,6 +95,8 @@ var users = [{
   avatar: 'valerie.png'
 }, {
   name: 'Canuck',
+  imageName: 'adrian',
+  imageNamePhoto: 'adrianPhoto',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
@@ -67,6 +105,8 @@ var users = [{
   avatar: 'adrian.png'
 }, {
   name: 'Shriekin Desperado',
+  imageName: 'munir',
+  imageNamePhoto: 'munirPhoto',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
@@ -75,6 +115,8 @@ var users = [{
   avatar: 'munir.png'
 },{
   name: 'Pirate',
+  imageName: 'taiwan',
+  imageNamePhoto: 'taiwanPhoto',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
@@ -83,6 +125,8 @@ var users = [{
   avatar: 'taiwan.png'
 },{
   name: 'Judy the Destroyer',
+  imageName: 'judy',
+  imageNamePhoto: 'judyPhoto',
   gender: 'F',
   workWell: 'yes',
   saveWho: 'self',
@@ -91,6 +135,8 @@ var users = [{
   avatar: 'judy.png'
 },{
   name: 'Baby Toddler',
+  imageName: 'britt',
+  imageNamePhoto: 'brittPhoto',
   gender: 'F',
   workWell: 'no',
   saveWho: 'mom',
@@ -99,6 +145,8 @@ var users = [{
   avatar: 'britt_warrior.jpg'
 },{
   name: 'Athena',
+  imageName: 'maelle',
+  imageNamePhoto: 'maellePhoto',
   gender: 'F',
   workWell: 'yes',
   saveWho: 'self',
@@ -107,6 +155,8 @@ var users = [{
   avatar: 'maelle.png'
 },{
   name: 'Brunhilda',
+  imageName: 'rachael',
+  imageNamePhoto: 'rachaelPhoto',
   gender: 'F',
   workWell: 'yes',
   saveWho: 'self',
@@ -115,97 +165,91 @@ var users = [{
   avatar: 'rachael.png'
 },];
 
-window.addEventListener('load', function() {
 
-  var results = document.getElementById('results');
+// Load the whole set of warriors on page load.
 
-  function search() {
+function search() {
 
-    //get work well
-    var workWellField = document.getElementById('workWell');
-    var workWell = workWellField.value;
+  //get work well
+  var workWellField = document.getElementById('workWell');
+  var workWell = workWellField.value;
 
-    //get save who
-    var saveWhoField = document.getElementById('saveWho');
-    var saveWho = saveWhoField.value;
+  //get save who
+  var saveWhoField = document.getElementById('saveWho');
+  var saveWho = saveWhoField.value;
 
-    //get specialty
-    var specialtyField = document.getElementById('specialty');
-    var specialty = specialtyField.value;
+  //get specialty
+  var specialtyField = document.getElementById('specialty');
+  var specialty = specialtyField.value;
 
-    //get language
-    var languageField = document.getElementById('language');
-    var language = languageField.value;
+  //get language
+  var languageField = document.getElementById('language');
+  var language = languageField.value;
 
-    //get gender
-    var genderField = document.getElementById('gender');
-    var s = genderField.selectedIndex;
-    var gender = genderField.options[s].value;
+  //get gender
+  var genderField = document.getElementById('gender');
+  var s = genderField.selectedIndex;
+  var gender = genderField.options[s].value;
 
-    var resultsHtml = '';
-    var usersLength = users.length;
+  var resultsHtml = '';
+  var usersLength = users.length;
 
-    for (var i = 0; i < usersLength; i++) {
-      //check gender
-      if (gender == 'A' || gender == users[i].gender) {
-        //check workWell
-        if (workWell == 'noanswer' || workWell == users[i].workWell) {
-          //check if they save themselves or their mom
-          if (saveWho == 'noanswer' || saveWho == users[i].saveWho) {
+  for (var i = 0; i < usersLength; i++) {
+    //check gender
+    if (gender == 'A' || gender == users[i].gender) {
+      //check workWell
+      if (workWell == 'noanswer' || workWell == users[i].workWell) {
+        //check if they save themselves or their mom
+        if (saveWho == 'noanswer' || saveWho == users[i].saveWho) {
+          //check language
+          if (specialty == 'any' || specialty == users[i].specialty) {
             //check language
-            if (specialty == 'any' || specialty == users[i].specialty) {
-              //check language
-              if (language == 'any' || language == users[i].language) {
-                resultsHtml += '<div>\
-                                 <div class="left">\
-                                 <img align="left" src="../img/' + users[i].avatar + '" />\
-                                 <button>Draft</button></div>\
-                                 <div class="right"><ul>\
-                                 <h2>' + users[i].name + '</h2>\
-                                 <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
-                                 <li>' + 'Save Mom or Self: ' + users[i].saveWho + '</li>\
-                                 <li>' + 'Specialty: ' + users[i].specialty + '</li>\
-                                 <li>' + 'Languages: ' + users[i].language + '</li></div></div>';
-              }
+            if (language == 'any' || language == users[i].language) {
+              resultsHtml += '<div>\
+                               <div class="left">\
+                               <input type="checkbox" name="' + users[i].imageName + '" value="' + users[i].imageName + '"id="' + users[i].imageName + '"class="hidden">\
+                                 <ul>\
+                                  <li>\
+                                   <img class="inactive" src="../img/' + users[i].avatar + '"id="' + users[i].imageNamePhoto + '"alt="' + users[i].imageName + '" />\
+                                   <div class="notSelected">\
+                                     <p>Drafted</p>\
+                                   </div>\
+                                 </li>\
+                                </ul>\
+                              </div>\
+                              <div class="right">\
+                                <ul>\
+                                  <h2>' + users[i].name + '</h2>\
+                                  <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
+                                  <li>' + 'Save Mom or Self: ' + users[i].saveWho + '</li>\
+                                  <li>' + 'Specialty: ' + users[i].specialty + '</li>\
+                                  <li>' + 'Languages: ' + users[i].language + '</li>\
+                                </ul>\
+                              </div>\
+                             </div>';
             }
           }
         }
       }
     }
-    results.innerHTML = resultsHtml;
   }
+  results.innerHTML = resultsHtml;
+}
 
+// window.onload = function() {
+  search();
+  addWarriors();
+// };
+
+// Load the selected warriors from the filters.
+window.addEventListener('load', function() {
+  // search();
   var searchBtn = document.getElementById('searchBtn');
-
   searchBtn.addEventListener('click', search);
+  addWarriors();
 });
 
-// TEST draft
-
-var warriorNamesArray = ['britney', 'sam', 'lee', 'fiona', 'britt'];
-
-var form = document.getElementById('warriorForm');
-var userNameInStorage = localStorage.getItem('userName');
-var updateList = document.getElementById('warriorListInBuilder');
-
-var allUsers = [];
-var allUsersRanked = [];
-
-var warriorArray = [];
-var selectedWarriors = [];
-var warriorDisplayNames = [];
-var userWarriors = [];
-
-function addIngredients () {
-  for(var i = 0; i < warriorNamesArray.length; i++) {
-    var currentWarrior = document.getElementById(warriorNamesArray[i]);
-    warriorArray.push(currentWarrior);
-    document.getElementById(warriorNamesArray[i] + 'Photo').addEventListener('click', handleImageSelection);
-  };
-};
-
-addIngredients();
-
+// Run function when image/checkbox is clicked.
 function handleImageSelection() {
   var alt = document.getElementById(this.alt);
   if (this.className === 'inactive') {
@@ -213,13 +257,13 @@ function handleImageSelection() {
     alt.checked = true;
     selectedWarriors.push(alt.value);
     warriorDisplayNames.push(alt.name);
-    showIngredients();
+    showWarriors();
     var inlineLabel = this.nextSibling;
     inlineLabel.className = 'selected';
   } else {
     this.className = 'inactive';
     alt.checked = false;
-    var inlineLabel = this.nextSibling;
+    inlineLabel = this.nextSibling;
     inlineLabel.className = 'notSelected';
     for (var i = 0; i < selectedWarriors.length; i++) {
       if(alt.value === selectedWarriors[i]) {
@@ -234,34 +278,46 @@ function handleImageSelection() {
   localStorage.setItem('warriorDisplayNames',JSON.stringify(warriorDisplayNames));
 }
 
+// Event Delegation
+var container = document.getElementById('results');
+container.addEventListener('click', function(e){
+  if (e.target.matches('#aaronPhoto, #adrianPhoto, #annakaPhoto, #brittPhoto, #britneyPhoto, #leePhoto, #samPhoto, #valPhoto, #munirPhoto, #taiwanPhoto, #judyPhoto, #maellePhoto, #rachaelPhoto, #fionaPhoto')) {
+    e.stopPropagation();
+    e.target.addEventListener('click', handleImageSelection);
+  }
+});
+
+function addWarriors () {
+  var counter = 0;
+  for (var i = 0; i < users.length; i++) {
+    console.log(users);
+    currentWarrior = document.getElementById(users[i].imageNamePhoto);
+    warriorNamesArray.push(currentWarrior);
+    // console.log('users array', users[i]);
+    console.log('index', i);
+    console.log('reference counter', counter++);
+    document.getElementById(users[i].imageNamePhoto).addEventListener('click', handleImageSelection);
+  };
+};
+
+addWarriors();
+
 window.onload = function () {
   if (localStorage.getItem('selectedWarriors') != '' && localStorage.getItem('selectedWarriors') != null) {
     selectedWarriors = JSON.parse(localStorage.getItem('selectedWarriors'));
     warriorDisplayNames = JSON.parse(localStorage.getItem('warriorDisplayNames'));
     for(var i = 0; i < selectedWarriors.length; i++) {
-      var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
-      elImg.className = 'active';
+      // var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
+      console.log(selectedWarriors[i] + 'Photo');
+      // elImg.className = 'active';
       var elInput = document.getElementById(selectedWarriors[i]);
       elInput.checked = true;
     }
   }
-  showIngredients();
+  showWarriors();
   repopulateList();
   showButton();
 };
-
-function UserBuilder(userName, filePath, ingredients) {
-  this.userName = userName;
-  this.filePath = filePath;
-  for(var i = 0; i < warriorNamesArray.length; i++) {
-    this[warriorNamesArray[i]] = ingredients[i];
-  }
-  allUsers.push(this);
-  this.ingredients = ingredients;
-  this.matchesWithNewUserTally = 0;
-}
-
-form.addEventListener('submit', handleNachoSubmit);
 
 function showButton() {
   if (selectedWarriors.length > 1) {
@@ -282,39 +338,24 @@ function repopulateList() {
   }
 }
 
-function showIngredients() {
+function showWarriors() {
   var endOfList = document.getElementById('endOfSelectedWarriors');
   updateList.className = '';
 }
 
-function setupNewUser() {
-  for (var i = 0; i < warriorNamesArray.length; i++) {
-    for (var j = 0; j < selectedWarriors.length; j++) {
-      if(warriorNamesArray[i] === selectedWarriors[j]) {
-        userWarriors[i] = true;
-        break;
-      } else {
-        userWarriors[i] = false;
-      }
-    }
-  }
-}
-
-function handleNachoSubmit(event) {
+function handleWarriorSubmit(event) {
   event.preventDefault();
-
-  setupNewUser();
-  var newUser = new UserBuilder(userNameInStorage,'', userWarriors);
-
-  localStorage.setItem('allUsers',JSON.stringify(allUsersRanked));
   selectedWarriors = [];
   warriorDisplayNames = [];
   localStorage.setItem('selectedWarriors', selectedWarriors);
   localStorage.setItem('warriorDisplayNames', warriorDisplayNames);
-
   redirectToResults();
 }
 
+form.addEventListener('submit', handleWarriorSubmit);
+
 function redirectToResults() {
   window.location.href = 'team.html';
+  localStorage.setItem('selectedWarriors', selectedWarriors);
+  localStorage.setItem('warriorDisplayNames', warriorDisplayNames);
 }
