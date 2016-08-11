@@ -486,7 +486,7 @@ window.onload = function () {
 };
 
 function showButton() {
-  if (selectedWarriors.length > 1) {
+  if (selectedWarriors.length > 0) {
     var submitButton = document.getElementById('submitButton');
     submitButton.className = '';
   } else {
