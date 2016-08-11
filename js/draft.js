@@ -1,5 +1,10 @@
 'use strict';
 
+function redirectToResults() {
+
+  window.location.href = 'team.html';
+}
+
 // Store the warrior images and associated attributes.
 var warriorNamesArray = [];
 
@@ -236,10 +241,8 @@ function search() {
   results.innerHTML = resultsHtml;
 }
 
-// window.onload = function() {
-  search();
-  addWarriors();
-// };
+search();
+addWarriors();
 
 // Load the selected warriors from the filters.
 window.addEventListener('load', function() {
@@ -307,9 +310,9 @@ window.onload = function () {
     selectedWarriors = JSON.parse(localStorage.getItem('selectedWarriors'));
     warriorDisplayNames = JSON.parse(localStorage.getItem('warriorDisplayNames'));
     for(var i = 0; i < selectedWarriors.length; i++) {
-      // var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
+      var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
       console.log(selectedWarriors[i] + 'Photo');
-      // elImg.className = 'active';
+      elImg.className = 'active';
       var elInput = document.getElementById(selectedWarriors[i]);
       elInput.checked = true;
     }
@@ -345,17 +348,11 @@ function showWarriors() {
 
 function handleWarriorSubmit(event) {
   event.preventDefault();
-  selectedWarriors = [];
-  warriorDisplayNames = [];
-  localStorage.setItem('selectedWarriors', selectedWarriors);
-  localStorage.setItem('warriorDisplayNames', warriorDisplayNames);
+  localStorage.setItem('selectedWarriors',JSON.stringify(selectedWarriors));
+  localStorage.setItem('warriorDisplayNames',JSON.stringify(warriorDisplayNames));
+  // localStorage.setItem('selectedWarriors', selectedWarriors);
+  // localStorage.setItem('warriorDisplayNames', warriorDisplayNames);
   redirectToResults();
 }
 
-form.addEventListener('submit', handleWarriorSubmit);
-
-function redirectToResults() {
-  window.location.href = 'team.html';
-  localStorage.setItem('selectedWarriors', selectedWarriors);
-  localStorage.setItem('warriorDisplayNames', warriorDisplayNames);
-}
+form[0].addEventListener('submit', handleWarriorSubmit);
