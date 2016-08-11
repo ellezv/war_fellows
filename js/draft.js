@@ -20,6 +20,8 @@ var warriorDisplayNames = [];
 
 var results = document.getElementById('results');
 
+var currentWarrior;
+
 // Draft Page
 var users = [{
   name: 'Lee the Conqueror',
@@ -166,274 +168,92 @@ var users = [{
 
 // Load the whole set of warriors on page load.
 
+function search() {
+
+  //get work well
+  var workWellField = document.getElementById('workWell');
+  var workWell = workWellField.value;
+
+  //get save who
+  var saveWhoField = document.getElementById('saveWho');
+  var saveWho = saveWhoField.value;
+
+  //get specialty
+  var specialtyField = document.getElementById('specialty');
+  var specialty = specialtyField.value;
+
+  //get language
+  var languageField = document.getElementById('language');
+  var language = languageField.value;
+
+  //get gender
+  var genderField = document.getElementById('gender');
+  var s = genderField.selectedIndex;
+  var gender = genderField.options[s].value;
+
+  var resultsHtml = '';
+  var usersLength = users.length;
+
+  for (var i = 0; i < usersLength; i++) {
+    //check gender
+    if (gender == 'A' || gender == users[i].gender) {
+      //check workWell
+      if (workWell == 'noanswer' || workWell == users[i].workWell) {
+        //check if they save themselves or their mom
+        if (saveWho == 'noanswer' || saveWho == users[i].saveWho) {
+          //check language
+          if (specialty == 'any' || specialty == users[i].specialty) {
+            //check language
+            if (language == 'any' || language == users[i].language) {
+              resultsHtml += '<div>\
+                               <div class="left">\
+                               <input type="checkbox" name="' + users[i].imageName + '" value="' + users[i].imageName + '"id="' + users[i].imageName + '"class="hidden">\
+                                 <ul>\
+                                  <li>\
+                                   <img class="inactive" src="../img/' + users[i].avatar + '"id="' + users[i].imageNamePhoto + '"alt="' + users[i].imageName + '" />\
+                                   <div class="notSelected">\
+                                     <p>Drafted</p>\
+                                   </div>\
+                                 </li>\
+                                </ul>\
+                              </div>\
+                              <div class="right">\
+                                <ul>\
+                                  <h2>' + users[i].name + '</h2>\
+                                  <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
+                                  <li>' + 'Save Mom or Self: ' + users[i].saveWho + '</li>\
+                                  <li>' + 'Specialty: ' + users[i].specialty + '</li>\
+                                  <li>' + 'Languages: ' + users[i].language + '</li>\
+                                </ul>\
+                              </div>\
+                             </div>';
+            }
+          }
+        }
+      }
+    }
+  }
+  results.innerHTML = resultsHtml;
+}
+
 // window.onload = function() {
-//   var fieldResults = document.getElementById('warrior_field_set');
-//   var fieldResultsHtml;
-//   var photoResults = document.getElementById('photo_wrapper');
-//   var photoResultsHtml;
-//
-//   function search() {
-//
-//     //get work well
-//     var workWellField = document.getElementById('workWell');
-//     var workWell = workWellField.value;
-//
-//     //get save who
-//     var saveWhoField = document.getElementById('saveWho');
-//     var saveWho = saveWhoField.value;
-//
-//     //get specialty
-//     var specialtyField = document.getElementById('specialty');
-//     var specialty = specialtyField.value;
-//
-//     //get language
-//     var languageField = document.getElementById('language');
-//     var language = languageField.value;
-//
-//     //get gender
-//     var genderField = document.getElementById('gender');
-//     var s = genderField.selectedIndex;
-//     var gender = genderField.options[s].value;
-//
-//     var resultsHtml = '';
-//     var usersLength = users.length;
-//
-//     for (var j = 0; j < usersLength; j++) {
-//       if (gender == 'A' || gender == users[j].gender) {
-//         //check workWell
-//         if (workWell == 'noanswer' || workWell == users[j].workWell) {
-//           //check if they save themselves or their mom
-//           if (saveWho == 'noanswer' || saveWho == users[j].saveWho) {
-//             //check language
-//             if (specialty == 'any' || specialty == users[j].specialty) {
-//               //check language
-//               if (language == 'any' || language == users[j].language) {
-//                 console.log('hey hey');
-//                 fieldResultsHtml += '<input type="checkbox" name="' + users[j].imageName + '" value="' + users[j].imageName + '"id="' + users[j].imageName + '"class="hidden" checked>';
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     fieldResults.innerHTML = fieldResultsHtml;
-//
-//     for (var k = 0; k < usersLength; k++) {
-//       if (gender == 'A' || gender == users[k].gender) {
-//         //check workWell
-//         if (workWell == 'noanswer' || workWell == users[k].workWell) {
-//           //check if they save themselves or their mom
-//           if (saveWho == 'noanswer' || saveWho == users[k].saveWho) {
-//             //check language
-//             if (specialty == 'any' || specialty == users[k].specialty) {
-//               //check language
-//               if (language == 'any' || language == users[k].language) {
-//                 console.log('bye bye');
-//                 photoResultsHtml += '<li>\
-//                                       <img class="inactive" src="../img/' + users[k].avatar + '"id="' + users[k].imageNamePhoto + '"alt="' + users[k].imageName + '" />\
-//                                       <div class="notSelected">\
-//                                         <p>Drafted</p>\
-//                                       </div>\
-//                                     </li>';
-//
-//
-//
-//
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     photoResults.innerHTML = photoResultsHtml;
-//
-//     addWarriors();
-//
-//     for (var i = 0; i < usersLength; i++) {
-//       //check gender
-//       if (gender == 'A' || gender == users[i].gender) {
-//         //check workWell
-//         if (workWell == 'noanswer' || workWell == users[i].workWell) {
-//           //check if they save themselves or their mom
-//           if (saveWho == 'noanswer' || saveWho == users[i].saveWho) {
-//             //check language
-//             if (specialty == 'any' || specialty == users[i].specialty) {
-//               //check language
-//               if (language == 'any' || language == users[i].language) {
-//                 resultsHtml += '<div>\
-//                                  <div class="left">\
-//                                  <input type="checkbox" name="' + users[i].imageName + '" value="' + users[i].imageName + '"id="' + users[i].imageName + '"class="hidden">\
-//                                    <ul>\
-//                                     <li>\
-//                                      <img class="inactive" src="../img/' + users[i].avatar + '"id="' + users[i].imageNamePhoto + '"alt="' + users[i].imageName + '" />\
-//                                      <div class="notSelected">\
-//                                        <p>Drafted</p>\
-//                                      </div>\
-//                                    </li>\
-//                                   </ul>\
-//                                 </div>\
-//                                 <div class="right">\
-//                                   <ul>\
-//                                     <h2>' + users[i].name + '</h2>\
-//                                     <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
-//                                     <li>' + 'Save Mom or Self: ' + users[i].saveWho + '</li>\
-//                                     <li>' + 'Specialty: ' + users[i].specialty + '</li>\
-//                                     <li>' + 'Languages: ' + users[i].language + '</li>\
-//                                   </ul>\
-//                                 </div>\
-//                                </div>';
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     results.innerHTML = resultsHtml;
-//   }
-//   search();
-//   addWarriors();
+  search();
+  addWarriors();
 // };
-//
-// // Load the selected warriors from the filters.
-//
-// window.addEventListener('load', function() {
-//   var results = document.getElementById('results');
-//   var fieldResults = document.getElementById('warrior_field_set');
-//   var fieldResultsHtml;
-//   var photoResults = document.getElementById('photo_wrapper');
-//   var photoResultsHtml;
-//
-//   function search() {
-//
-//     //get work well
-//     var workWellField = document.getElementById('workWell');
-//     var workWell = workWellField.value;
-//
-//     //get save who
-//     var saveWhoField = document.getElementById('saveWho');
-//     var saveWho = saveWhoField.value;
-//
-//     //get specialty
-//     var specialtyField = document.getElementById('specialty');
-//     var specialty = specialtyField.value;
-//
-//     //get language
-//     var languageField = document.getElementById('language');
-//     var language = languageField.value;
-//
-//     //get gender
-//     var genderField = document.getElementById('gender');
-//     var s = genderField.selectedIndex;
-//     var gender = genderField.options[s].value;
-//
-//     var resultsHtml = '';
-//     var usersLength = users.length;
-//
-//     for (var j = 0; j < usersLength; j++) {
-//       if (gender == 'A' || gender == users[j].gender) {
-//         //check workWell
-//         if (workWell == 'noanswer' || workWell == users[j].workWell) {
-//           //check if they save themselves or their mom
-//           if (saveWho == 'noanswer' || saveWho == users[j].saveWho) {
-//             //check language
-//             if (specialty == 'any' || specialty == users[j].specialty) {
-//               //check language
-//               if (language == 'any' || language == users[j].language) {
-//                 console.log('hey hey');
-//                 fieldResultsHtml += '<input type="checkbox" name="' + users[j].imageName + '" value="' + users[j].imageName + '"id="' + users[j].imageName + '"class="hidden">';
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     fieldResults.innerHTML = fieldResultsHtml;
-//
-//     for (var k = 0; k < usersLength; k++) {
-//       if (gender == 'A' || gender == users[k].gender) {
-//         //check workWell
-//         if (workWell == 'noanswer' || workWell == users[k].workWell) {
-//           //check if they save themselves or their mom
-//           if (saveWho == 'noanswer' || saveWho == users[k].saveWho) {
-//             //check language
-//             if (specialty == 'any' || specialty == users[k].specialty) {
-//               //check language
-//               if (language == 'any' || language == users[k].language) {
-//                 console.log('bye bye');
-//                 photoResultsHtml += '<li>\
-//                                       <img class="inactive" src="../img/' + users[k].avatar + '"id="' + users[k].imageNamePhoto + '"alt="' + users[k].imageName + '" />\
-//                                       <div class="notSelected">\
-//                                         <p>Drafted</p>\
-//                                       </div>\
-//                                     </li>';
-//
-//
-//
-//
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     photoResults.innerHTML = photoResultsHtml;
-//
-//     addWarriors();
-//
-//     for (var i = 0; i < usersLength; i++) {
-//       //check gender
-//       if (gender == 'A' || gender == users[i].gender) {
-//         //check workWell
-//         if (workWell == 'noanswer' || workWell == users[i].workWell) {
-//           //check if they save themselves or their mom
-//           if (saveWho == 'noanswer' || saveWho == users[i].saveWho) {
-//             //check language
-//             if (specialty == 'any' || specialty == users[i].specialty) {
-//               //check language
-//               if (language == 'any' || language == users[i].language) {
-//                 resultsHtml += '<div>\
-//                                  <div class="left">\
-//                                    <ul>\
-//                                     <li>\
-//                                      <img class="inactive" src="../img/' + users[i].avatar + '"id="' + users[i].imageNamePhoto + '"alt="' + users[i].imageName + '" />\
-//                                      <div class="notSelected">\
-//                                        <p>Drafted</p>\
-//                                      </div>\
-//                                    </li>\
-//                                   </ul>\
-//                                 </div>\
-//                                 <div class="right">\
-//                                   <ul>\
-//                                     <h2>' + users[i].name + '</h2>\
-//                                     <li>' + 'Works Well With Others: ' + users[i].workWell + '</li>\
-//                                     <li>' + 'Save Mom or Self: ' + users[i].saveWho + '</li>\
-//                                     <li>' + 'Specialty: ' + users[i].specialty + '</li>\
-//                                     <li>' + 'Languages: ' + users[i].language + '</li>\
-//                                   </ul>\
-//                                 </div>\
-//                                </div>';
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     results.innerHTML = resultsHtml;
-//   }
-//   search();
-//   addWarriors();
-//   var searchBtn = document.getElementById('searchBtn');
-//   searchBtn.addEventListener('click', search);
-// });
 
-// SANDBOXING
+// Load the selected warriors from the filters.
+window.addEventListener('load', function() {
+  // search();
+  var searchBtn = document.getElementById('searchBtn');
+  searchBtn.addEventListener('click', search);
+  addWarriors();
+});
 
+// Run function when image/checkbox is clicked.
 function handleImageSelection() {
-  console.log(this);
   var alt = document.getElementById(this.alt);
   if (this.className === 'inactive') {
     this.className = 'active';
-    console.log(alt);
     alt.checked = true;
     selectedWarriors.push(alt.value);
     warriorDisplayNames.push(alt.name);
@@ -458,11 +278,24 @@ function handleImageSelection() {
   localStorage.setItem('warriorDisplayNames',JSON.stringify(warriorDisplayNames));
 }
 
+// Event Delegation
+var container = document.getElementById('results');
+container.addEventListener('click', function(e){
+  if (e.target.matches('#aaronPhoto, #adrianPhoto, #annakaPhoto, #brittPhoto, #britneyPhoto, #leePhoto, #samPhoto, #valPhoto, #munirPhoto, #taiwanPhoto, #judyPhoto, #maellePhoto, #rachaelPhoto, #fionaPhoto')) {
+    e.stopPropagation();
+    e.target.addEventListener('click', handleImageSelection);
+  }
+});
+
 function addWarriors () {
+  var counter = 0;
   for (var i = 0; i < users.length; i++) {
-    var currentWarrior = document.getElementById(users[i].imageNamePhoto);
-    console.log(currentWarrior);
+    console.log(users);
+    currentWarrior = document.getElementById(users[i].imageNamePhoto);
     warriorNamesArray.push(currentWarrior);
+    // console.log('users array', users[i]);
+    console.log('index', i);
+    console.log('reference counter', counter++);
     document.getElementById(users[i].imageNamePhoto).addEventListener('click', handleImageSelection);
   };
 };
@@ -474,8 +307,9 @@ window.onload = function () {
     selectedWarriors = JSON.parse(localStorage.getItem('selectedWarriors'));
     warriorDisplayNames = JSON.parse(localStorage.getItem('warriorDisplayNames'));
     for(var i = 0; i < selectedWarriors.length; i++) {
-      var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
-      elImg.className = 'active';
+      // var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
+      console.log(selectedWarriors[i] + 'Photo');
+      // elImg.className = 'active';
       var elInput = document.getElementById(selectedWarriors[i]);
       elInput.checked = true;
     }
@@ -486,7 +320,7 @@ window.onload = function () {
 };
 
 function showButton() {
-  if (selectedWarriors.length > 0) {
+  if (selectedWarriors.length > 1) {
     var submitButton = document.getElementById('submitButton');
     submitButton.className = '';
   } else {
@@ -494,8 +328,6 @@ function showButton() {
     submitButton.className = 'hidden';
   }
 }
-
-debugger;
 
 function repopulateList() {
   updateList.innerHTML = '';
