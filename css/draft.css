@@ -5,82 +5,31 @@ main {
   margin: 30px auto 30px auto;
 }
 
-section img {
-  box-shadow: 5px 5px 10px #d9d9d9;
-  margin-right: 40px;
+/*result part image+info*/
+.main_draft {
+  width: 70%;
+  float: right;
 }
-
-p {
-  color: #000;
-  width: 800px;
-}
-
-main {
-  width: 960px;
-  margin: 30px auto;
-}
-
 .left {
   float: left;
   height: 300px;
   width: 20%;
 }
-
 .right {
   float: left;
   height: 300px;
   width: 60%;
   padding-left: 120px;
 }
-
 .right h2 {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 15px;
 }
-
 .right ul li {
   line-height: 1.7em;
   font-weight: bold;
 }
-
-button {
-  margin-top: 20px;
-  border: none;
-  padding: 10px 65px;
-  font-size: 18px;
-  border-radius: 3px;
-  cursor: pointer;
-  background: #000;
-  color: #fff;
-  transition: 350ms all;
-}
-
-button:hover {
-  background: #555;
-  color: #eee;
-}
-
-.active {
-  background: green;
-}
-
-aside {
-  width: 20%;
-  float: left;
-}
-
-.main_draft {
-  width: 70%;
-  float: right;
-}
-
-h3 {
-  margin: 0 auto;
-  text-align: center;
-  font-size: 20px;
-}
-
 .hidden {
   display: none;
 }
@@ -93,7 +42,6 @@ img.inactive {
   margin: 5px;
   cursor: pointer;
 }
-
 img.inactive:hover {
   width: 200px;
   height: 200px;
@@ -101,7 +49,6 @@ img.inactive:hover {
   margin: 5px;
   cursor: pointer;
 }
-
 img.active {
   width: 200px;
   height: 200px;
@@ -110,7 +57,6 @@ img.active {
   opacity: .5;
   cursor: pointer;
 }
-
 img.active:hover {
   width: 200px;
   height: 200px;
@@ -120,36 +66,35 @@ img.active:hover {
   cursor: pointer;
 }
 
-#warriorForm {
-  width: 250px;
+/*#warriorForm {
+  width: 20%;
   margin: 0 auto;
   margin-top: 75px;
-}
+}*/
 
-#photos {
+/*#photos {
   max-width: 960px;
   width: 100%;
   margin: 0 auto;
-}
+}*/
 
-#photo_wrapper {
+/*#photo_wrapper {
   max-width: 900px;
   width: 100%;
   margin: 30px auto;
   padding-top: 60px;
   margin-bottom: 120px;
-}
+  outline:dotted 5px red;
+}*/
 
 #photo_wrapper li {
   display: inline-block;
 }
-
 #warriorListInBuilder {
     max-width: 450px;
     padding: 3px 0;
     margin: 0 auto;
 }
-
 #warriorListInBuilder li {
   display: inline-block;
   border: 1px solid black;
@@ -159,38 +104,41 @@ img.active:hover {
   margin: 5px;
   color: #fff;
 }
-
 #selectedWarriors {
-  max-width: 200px;
-  height: 400px;
-  width: 100%;
-  margin: auto 0;
-  padding: 5px 10px;
+  margin-right:100px;
   position: fixed;
-  background-color: #000;
-  opacity: .75;
+  background-color:#696969;
+  height:350px;
+  width:240px;
+  border-radius:20px 20px 20px 20px;
   right: 0;
-  z-index: 1;
 }
-
 #selectedWarriors h3 {
   color: #fff;
   padding-top: 20px;
   font-weight: bold;
+  font-family: 'Play', sans-serif;
+  font-size: 20px;
+  text-align: center;
 }
-
 #submitButton {
-  border-radius: 5%;
-  background-color: #111111;
+  margin-top:170px;
+  margin-left: 10px;
+  width:220px;
+  padding:10px;
+  font-size: 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  background: black;
   color: white;
-  width: 150px;
-  height: 50px;
-  position: absolute;
-  right: 10%;
-  bottom: 37.5%;
-  border: 1px solid white;
-}
+  transition: 350ms all;
+  font-family: 'Play', sans-serif;
 
+}
+#submitButton:hover {
+  background: #555;
+  color: #eee;
+}
 .notSelected {
   display: none;
 }
@@ -206,7 +154,6 @@ li:hover div.notSelected {
   opacity: 0.7;
   text-align: center;
   }
-
 li:hover .notSelected p {
   display: inline;
   position: relative;
@@ -216,7 +163,6 @@ li:hover .notSelected p {
   color: white;
   opacity: .7;
 }
-
 div.selected {
   display: block;;
   position: absolute;;
@@ -228,7 +174,6 @@ div.selected {
   opacity: 0.7;
   text-align: center;
 }
-
 .selected p {
   display: inline;
   position: relative;
@@ -241,7 +186,32 @@ div.selected {
   }
 
 /*filter section*/
+aside {
+  width: 20%;
+  float: left;
+  position:fixed;
+  background-color:#696969;
+  height:350px;
+  width:260px;
+  border-radius:20px 20px 20px 20px;
+  margin-right: 30px;
 
+}
+button {
+  margin-top: 20px;
+  padding: 10px 65px;
+  font-size: 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  transition: 350ms all;
+  font-family: 'Play', sans-serif;
+}
+button:hover {
+  background: #555;
+  color: #eee;
+}
 .row{
   height:35px;
   width:200px;
@@ -251,67 +221,28 @@ div.selected {
   font-family: 'Play', sans-serif;
   margin-left:40px;
 }
-
-.filter{
-  background-color:#696969;
-  height:350px;
-  width:260px;
-  border-radius:20px 20px 20px 20px;
-  margin-right: 30px;
-}
-
 #gender{
   margin-top:20px;
   border-radius:10%;
   width:100px;
 }
-
 #workWell{
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
-
 #saveWho{
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
-
 #specialty{
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
-
 #language{
   margin-top:10px;
   border-radius:10%;
   width:100px;
-}
-
-button {
-  border: none;
-  padding: 10px 65px;
-  font-size: 18px;
-  border-radius: 3px;
-  cursor: pointer;
-  background: #000;
-  color: #fff;
-  transition: 350ms all;
-
-}
-
-button:hover {
-  background: #555;
-  color: #eee;
-}
-
-.active {
-  background: green;
-}
-
-aside {
-  width: 20%;
-  float: left;
 }
