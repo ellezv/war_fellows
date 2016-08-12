@@ -6,8 +6,6 @@ var retrievedImages = JSON.parse(localStorage.unique);
 
 var classEl;
 
-var index;
-
 // Post names of warriors to page.
 var formResults = document.getElementById('form-results');
 var warriors = [];
@@ -31,16 +29,12 @@ function handleRemove() {
   location.reload();
 }
 
-// window.onload = function () {
 if (JSON.parse(localStorage.getItem('selectedWarriors') != null)) {
   retrievedData = JSON.parse(localStorage.getItem('selectedWarriors'));
   retrievedData.push(warriors);
   var h2El = document.createElement('h2');
   h2El.textContent = 'Your War Team:';
   formResults.appendChild(h2El);
-  var divEl = document.createElement('div');
-  divEl.textContent = retrievedData;
-  formResults.appendChild(divEl);
 
   for (var i = 0; i < retrievedImages.length; i++) {
     classEl = retrievedImages[i].slice(67, -4);
@@ -55,6 +49,3 @@ if (JSON.parse(localStorage.getItem('selectedWarriors') != null)) {
     imageButton.addEventListener('click', handleRemove);
   }
 }
-
-
-// };
