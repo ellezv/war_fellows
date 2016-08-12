@@ -11,15 +11,10 @@ var formResults = document.getElementById('form-results');
 var warriors = [];
 
 function handleRemove() {
-  console.log('yo');
   var classClicked = event.target.className;
-  console.log(classClicked);
   var indexToSplice = retrievedData.indexOf(classClicked);
-  console.log(indexToSplice);
   retrievedData.splice(indexToSplice, 1);
   retrievedImages.splice(indexToSplice, 1);
-  console.log(retrievedData);
-  console.log(retrievedImages);
   localStorage.unique = null;
   localStorage.selectedWarriors = null;
   retrievedImages = JSON.stringify(retrievedImages);
@@ -32,10 +27,6 @@ function handleRemove() {
 if (JSON.parse(localStorage.getItem('selectedWarriors') != null)) {
   retrievedData = JSON.parse(localStorage.getItem('selectedWarriors'));
   retrievedData.push(warriors);
-  var h2El = document.createElement('h2');
-  h2El.textContent = 'Your War Team:';
-  formResults.appendChild(h2El);
-
   for (var i = 0; i < retrievedImages.length; i++) {
     classEl = retrievedImages[i].slice(67, -4);
     var newImage = document.createElement('img');

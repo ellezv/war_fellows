@@ -61,7 +61,7 @@ var users = [{
   saveWho: 'mom',
   specialty: 'frontend',
   language: 'javascript',
-  avatar: 'britney_warrior.png'
+  avatar: 'britney.png'
 }, {
   name: 'Annaka Annihilator the Jedi',
   imageName: 'annaka',
@@ -81,7 +81,7 @@ var users = [{
   saveWho: 'mom',
   specialty: 'design',
   language: 'css',
-  avatar: 'fiona_warrior.jpg'
+  avatar: 'fiona.jpg'
 }, {
   name: 'Myotis the Tactician',
   imageName: 'val',
@@ -133,7 +133,7 @@ var users = [{
   language: 'css',
   avatar: 'judy.png'
 },{
-  name: 'Baby Toddler',
+  name: 'I Need a Nap Ninja',
   imageName: 'britt',
   imageNamePhoto: 'brittPhoto',
   gender: 'F',
@@ -141,7 +141,7 @@ var users = [{
   saveWho: 'mom',
   specialty: 'fullstack',
   language: 'python',
-  avatar: 'britt_warrior.jpg'
+  avatar: 'britt.jpg'
 },{
   name: 'Athena the Samurai',
   imageName: 'maelle',
