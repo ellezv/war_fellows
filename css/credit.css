@@ -1,0 +1,53 @@
+main {
+  width: 960px;
+  height:800px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+.thanks h1{
+  height:50px;
+  width:960px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Play', sans-serif;
+}
+/*.images{
+  text-align: center;
+  outline:dotted 5px green;
+  width:200px;
+  height:200px;
+}*/
+.images img{
+  margin-right:50px;
+  margin-bottom:50px;
+  border-radius:20px;
+  box-shadow:5px 5px 2px #888888;
+}
+.images button{
+  background-image:url("../img/nacho.jpg");
+  background-position: center;
+  background-size:auto 88%;
+  width:200px;
+  height:200px;
+  border-radius:20px;
+  box-shadow:5px 5px 2px #888888;
+  float:right;
+}
+.images button:hover{
+  transition:all .5s;
+  background-image:url("../img/nacho.jpg");
+  background-position: center;
+}
+/*figure{
+  outline: dotted 3px red;
+  width:200px;
+  height:250px;
+  display: inline-block;
+  text-align: center;
+}
+.images{
+  outline:dotted 2px blue;
+  height:500px;
+
+}*/
