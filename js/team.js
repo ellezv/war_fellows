@@ -9,8 +9,6 @@ var retrievedData = localStorage.getItem('selectedWarriors');
 
 var retrievedImages = JSON.parse(localStorage.unique);
 
-
-
 // Post names of warriors to page.
 var formResults = document.getElementById('form-results');
 var warriors = [];
