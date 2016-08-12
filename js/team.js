@@ -1,51 +1,37 @@
 'use strict';
 
+var selectedWarrior;
+var selectedImages;
+// var warriorNamesArray;
+
+var retrievedData = localStorage.getItem('selectedWarriors');
+// var retrievedImages = localStorage.getItem('activeWarriorNamesArray');
+
+var retrievedImages = JSON.parse(localStorage.unique);
 
 
-//
-//
-// function localStorageParsed() {
-//   var warriorsParsed = JSON.parse(localStorage.selectedWarriors);
-//   selectedWarriors = warriorsParsed;
-//   console.log('Storage');
-// }
-//
-//
-window.onload = function() {
-  // Retrieve selectedWarriors
-  var selectedWarriors = localStorage.getItem('selectedWarriors');
 
-  if (selectedWarriors != "undefined" || selectedWarriors != "null") {
-    document.getElementById('welcomeMessage').innerHTML = "Hello " + selectedWarriors + "!";
-  } else {
-    document.getElementById('welcomeMessage').innerHTML = "Hello!";
+// Post names of warriors to page.
+var formResults = document.getElementById('form-results');
+var warriors = [];
+
+window.onload = function () {
+  if (JSON.parse(localStorage.getItem('selectedWarriors') != null)) {
+    var retrievedData = JSON.parse(localStorage.getItem('selectedWarriors'));
+    retrievedData.push(warriors);
+    var h2El = document.createElement('h2');
+    h2El.textContent = 'Your War Team:';
+    formResults.appendChild(h2El);
+    var divEl = document.createElement('div');
+    divEl.textContent = retrievedData;
+    formResults.appendChild(divEl);
+
+    for (var i = 0; i < retrievedImages.length; i++) {
+      var newImage = document.createElement('img');
+      newImage.src = retrievedImages[i];
+      formResults.appendChild(newImage);
+    }
   }
-}
+};
 
-// function addStorage() {
-//     var key = document.getElementById("storageKey");
-//     var data = document.getElementById("storageData");
-//
-//     /* Set the local storage item */
-//     if ("localStorage" in window)
-//     {
-//        localStorage.setItem(key.value, data.value);
-//        location.reload();
-//     }
-//     else
-//     {
-//        alert("no localStorage in window");
-//     }
-//  }
-//
-// window.onload = function()
-//   {
-//      var localhtml = "";
-//
-//      /* Get the local storage item */
-//      for (var i = 0; i < localStorage.length; i++)
-//      {
-//         localhtml += "<li>" + localStorage.key(i) + " : " + localStorage.getItem(localStorage.key(i)) + "</li>";
-//      }
-//      document.getElementById("localStorageData").innerHTML = localhtml;
-// }
+// var removeWarrior = localStorage.removeItem('selectedWarriors');
