@@ -23,7 +23,7 @@ var currentWarrior;
 
 // Draft Page
 var users = [{
-  name: 'Lee the Conqueror',
+  name: 'Lee the Conqueror Pirate Ninja',
   imageName: 'lee',
   imageNamePhoto: 'leePhoto',
   gender: 'M',
@@ -33,7 +33,7 @@ var users = [{
   language: 'javascript',
   avatar: 'lee.png'
 },{
-  name: 'The Mighty Sam',
+  name: 'The Mighty Sam - Super-Spy',
   imageName: 'sam',
   imageNamePhoto: 'samPhoto',
   gender: 'M',
@@ -43,14 +43,14 @@ var users = [{
   language: 'any',
   avatar: 'sam.jpg'
 },{
-  name: 'Aaron',
+  name: 'Aaron the Immortal',
   imageName: 'aaron',
   imageNamePhoto: 'aaronPhoto',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
-  specialty: 'Full-Stack',
-  language: 'Javascript',
+  specialty: 'fullstack',
+  language: 'javascript',
   avatar: 'aaron.jpg'
 }, {
   name: 'Zenon',
@@ -63,7 +63,7 @@ var users = [{
   language: 'javascript',
   avatar: 'britney_warrior.png'
 }, {
-  name: 'Annaka Annihilator',
+  name: 'Annaka Annihilator the Jedi',
   imageName: 'annaka',
   imageNamePhoto: 'annakaPhoto',
   gender: 'F',
@@ -83,17 +83,17 @@ var users = [{
   language: 'css',
   avatar: 'fiona_warrior.jpg'
 }, {
-  name: 'Myotis',
+  name: 'Myotis the Tactician',
   imageName: 'val',
   imageNamePhoto: 'valPhoto',
   gender: 'F',
   workWell: 'yes',
   saveWho: 'noanswer',
   specialty: 'pm',
-  language: 'python',
-  avatar: 'valerie.png'
+  language: 'javascript',
+  avatar: 'val.png'
 }, {
-  name: 'Canuck',
+  name: 'Canuck the Ninja',
   imageName: 'adrian',
   imageNamePhoto: 'adrianPhoto',
   gender: 'M',
@@ -103,7 +103,7 @@ var users = [{
   language: 'css',
   avatar: 'adrian.png'
 }, {
-  name: 'Shriekin Desperado',
+  name: 'Shriekin Desperado the Samurai',
   imageName: 'munir',
   imageNamePhoto: 'munirPhoto',
   gender: 'M',
@@ -113,7 +113,7 @@ var users = [{
   language: 'python',
   avatar: 'munir.png'
 },{
-  name: 'Pirate',
+  name: 'Chubaka the Pirate',
   imageName: 'taiwan',
   imageNamePhoto: 'taiwanPhoto',
   gender: 'M',
@@ -123,7 +123,7 @@ var users = [{
   language: 'javascript',
   avatar: 'taiwan.png'
 },{
-  name: 'Judy the Destroyer',
+  name: 'Judy the Destroyer Pirate',
   imageName: 'judy',
   imageNamePhoto: 'judyPhoto',
   gender: 'F',
@@ -143,7 +143,7 @@ var users = [{
   language: 'python',
   avatar: 'britt_warrior.jpg'
 },{
-  name: 'Athena',
+  name: 'Athena the Samurai',
   imageName: 'maelle',
   imageNamePhoto: 'maellePhoto',
   gender: 'F',
@@ -162,6 +162,26 @@ var users = [{
   specialty: 'frontend',
   language: 'any',
   avatar: 'rachael.png'
+},{
+  name: 'Killa Keith the Lone Wolf',
+  imageName: 'keith',
+  imageNamePhoto: 'keithPhoto',
+  gender: 'M',
+  workWell: 'yes',
+  saveWho: 'mom',
+  specialty: 'frontend',
+  language: 'css',
+  avatar: 'keith.png'
+},{
+  name: 'Sera the Stealth Ninja',
+  imageName: 'sera',
+  imageNamePhoto: 'seraPhoto',
+  gender: 'F',
+  workWell: 'yes',
+  saveWho: 'mom',
+  specialty: 'frontend',
+  language: 'any',
+  avatar: 'sera.png'
 },];
 
 
