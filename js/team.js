@@ -1,12 +1,8 @@
 'use strict';
 
 var retrievedData = JSON.parse(localStorage.selectedWarriors);
-
 var retrievedImages = JSON.parse(localStorage.unique);
-
 var classEl;
-
-// Post names of warriors to page.
 var formResults = document.getElementById('form-results');
 var warriors = [];
 
@@ -23,7 +19,6 @@ function handleRemove() {
   localStorage.setItem('selectedWarriors', retrievedData);
   location.reload();
 }
-
 if (JSON.parse(localStorage.getItem('selectedWarriors') != null)) {
   retrievedData = JSON.parse(localStorage.getItem('selectedWarriors'));
   retrievedData.push(warriors);

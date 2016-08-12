@@ -259,7 +259,6 @@ addWarriors();
 
 // Load the selected warriors from the filters.
 window.addEventListener('load', function() {
-  // search();
   var searchBtn = document.getElementById('searchBtn');
   searchBtn.addEventListener('click', search);
   addWarriors();
@@ -305,14 +304,9 @@ container.addEventListener('click', function(e){
 });
 
 function addWarriors () {
-  var counter = 0;
   for (var i = 0; i < users.length; i++) {
-    console.log(users);
     currentWarrior = document.getElementById(users[i].imageNamePhoto);
     warriorNamesArray.push(currentWarrior);
-    // console.log('users array', users[i]);
-    console.log('index', i);
-    console.log('reference counter', counter++);
     document.getElementById(users[i].imageNamePhoto).addEventListener('click', handleImageSelection);
   };
 };
@@ -325,7 +319,6 @@ window.onload = function () {
     warriorDisplayNames = JSON.parse(localStorage.getItem('warriorDisplayNames'));
     for(var i = 0; i < selectedWarriors.length; i++) {
       var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
-      console.log(selectedWarriors[i] + 'Photo');
       elImg.className = 'active';
       var elInput = document.getElementById(selectedWarriors[i]);
       elInput.checked = true;
@@ -367,11 +360,9 @@ function handleWarriorSubmit(event) {
   var activeWarriorNamesArray = [];
   for (var i = 0; i < warriorNamesArray.length; i++) {
     if (warriorNamesArray[i].className === 'active') {
-      console.log(warriorNamesArray[i]);
       activeWarriorNamesArray.push(warriorNamesArray[i].src);
     }
   }
-  console.log(activeWarriorNamesArray);
   var unique = activeWarriorNamesArray.filter(function(elem, index, self) {
     return index == self.indexOf(elem);
   });
