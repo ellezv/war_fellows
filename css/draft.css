@@ -210,7 +210,7 @@ button:hover {
   color: #eee;
 }
 
-.row{
+.row {
   height:35px;
   width:200px;
   margin-bottom:20px;
@@ -220,31 +220,31 @@ button:hover {
   margin-left:40px;
 }
 
-#gender{
+#gender {
   margin-top:20px;
   border-radius:10%;
   width:100px;
 }
 
-#workWell{
+#workWell {
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
 
-#saveWho{
+#saveWho {
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
 
-#specialty{
+#specialty {
   margin-top:10px;
   border-radius:10%;
   width:100px;
 }
 
-#language{
+#language {
   margin-top:10px;
   border-radius:10%;
   width:100px;
