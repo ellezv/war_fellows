@@ -21,6 +21,17 @@ section p {
   line-height: 2em;
   font-weight: 900;
 }
+.creditbutton button{
+  width:200px;
+  padding:10px;
+  font-size: 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  background: black;
+  color: white;
+  transition: 350ms all;
+  font-family: 'Play', sans-serif;
+}
 footer{
   height:50px;
   text-align:center;
