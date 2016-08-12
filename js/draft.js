@@ -1,10 +1,5 @@
 'use strict';
 
-function redirectToResults() {
-
-  window.location.href = 'team.html';
-}
-
 // Store the warrior images and associated attributes.
 var warriorNamesArray = [];
 
@@ -14,17 +9,16 @@ var form = document.getElementsByClassName('warriorForm');
 // Get the list of warriors in the "Your war team" section
 var updateList = document.getElementById('warriorListInBuilder');
 
-// Store checkboxes html info
-var warriorArray = [];
-
 // Store the selected or checked warriors
 var selectedWarriors = [];
 
 // Displaying the names of the selected warriors
 var warriorDisplayNames = [];
 
+// Get the results id to post warrior info to the results container.
 var results = document.getElementById('results');
 
+// Store the current warrior in the array.
 var currentWarrior;
 
 // Draft Page
@@ -171,8 +165,7 @@ var users = [{
 },];
 
 
-// Load the whole set of warriors on page load.
-
+// Search function to filter warriors.
 function search() {
 
   //get work well
@@ -279,6 +272,7 @@ function handleImageSelection() {
   showButton();
   localStorage.setItem('selectedWarriors',JSON.stringify(selectedWarriors));
   localStorage.setItem('warriorDisplayNames',JSON.stringify(warriorDisplayNames));
+  localStorage.setItem('warriorNamesArray',JSON.stringify(warriorNamesArray));
 }
 
 // Event Delegation
@@ -327,7 +321,7 @@ function showButton() {
     var submitButton = document.getElementById('submitButton');
     submitButton.className = '';
   } else {
-    var submitButton = document.getElementById('submitButton');
+    submitButton = document.getElementById('submitButton');
     submitButton.className = 'hidden';
   }
 }
@@ -342,7 +336,7 @@ function repopulateList() {
 }
 
 function showWarriors() {
-  var endOfList = document.getElementById('endOfSelectedWarriors');
+  document.getElementById('endOfSelectedWarriors');
   updateList.className = '';
 }
 
@@ -350,9 +344,23 @@ function handleWarriorSubmit(event) {
   event.preventDefault();
   localStorage.setItem('selectedWarriors',JSON.stringify(selectedWarriors));
   localStorage.setItem('warriorDisplayNames',JSON.stringify(warriorDisplayNames));
-  // localStorage.setItem('selectedWarriors', selectedWarriors);
-  // localStorage.setItem('warriorDisplayNames', warriorDisplayNames);
+  var activeWarriorNamesArray = [];
+  for (var i = 0; i < warriorNamesArray.length; i++) {
+    if (warriorNamesArray[i].className === 'active') {
+      console.log(warriorNamesArray[i]);
+      activeWarriorNamesArray.push(warriorNamesArray[i].src);
+    }
+  }
+  console.log(activeWarriorNamesArray);
+  var unique = activeWarriorNamesArray.filter(function(elem, index, self) {
+    return index == self.indexOf(elem);
+  });
+  localStorage.setItem('unique',JSON.stringify(unique));
   redirectToResults();
 }
 
 form[0].addEventListener('submit', handleWarriorSubmit);
+
+function redirectToResults() {
+  window.location.href = 'team.html';
+}
