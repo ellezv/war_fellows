@@ -375,3 +375,9 @@ form[0].addEventListener('submit', handleWarriorSubmit);
 function redirectToResults() {
   window.location.href = 'team.html';
 }
+
+// Reset button.
+document.getElementById('resetBtn').addEventListener('click', function(){
+  localStorage.clear();
+  location.reload();
+});
