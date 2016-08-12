@@ -7,22 +7,8 @@ var selectedImages;
 var retrievedData = localStorage.getItem('selectedWarriors');
 // var retrievedImages = localStorage.getItem('activeWarriorNamesArray');
 
-var retrievedImages = JSON.parse(localStorage.noDuplicateWarriorNamesArray);
-//
-// console.log('Retrieved:', retrievedData);
-// if (retrievedData) {
-//   selectedWarrior = JSON.parse(retrievedData);
-// }
-//
-// console.log('Retrieved:', retrievedImages);
-// if (retrievedImages) {
-//   selectedImages = JSON.parse(retrievedImages);
-// }
-//
-// for (var i = 0; i < localStorage.length; i++){
-//   console.log( localStorage.getItem( localStorage.key( i ) ) );
-// }
-//
+var retrievedImages = JSON.parse(localStorage.unique);
+
 
 
 // Post names of warriors to page.
@@ -39,13 +25,12 @@ window.onload = function () {
     var divEl = document.createElement('div');
     divEl.textContent = retrievedData;
     formResults.appendChild(divEl);
-    // for (var i = 0; i < selectedWarriors.length; i++) {
-    //   var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
-    //   console.log(selectedWarriors[i] + 'Photo');
-    //   elImg.className = 'active';
-    //   var elInput = document.getElementById(selectedWarriors[i]);
-    //   elInput.checked = true;
-    // }
+
+    for (var i = 0; i < retrievedImages.length; i++) {
+      var newImage = document.createElement('img');
+      newImage.src = retrievedImages[i];
+      formResults.appendChild(newImage);
+    }
   }
 };
 
