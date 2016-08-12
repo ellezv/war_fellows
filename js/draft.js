@@ -23,7 +23,7 @@ var currentWarrior;
 
 // Draft Page
 var users = [{
-  name: 'Lee the Conqueror',
+  name: 'Lee the Conqueror Pirate Ninja',
   imageName: 'lee',
   imageNamePhoto: 'leePhoto',
   gender: 'M',
@@ -33,7 +33,7 @@ var users = [{
   language: 'javascript',
   avatar: 'lee.png'
 },{
-  name: 'The Mighty Sam',
+  name: 'The Mighty Sam - Super-Spy',
   imageName: 'sam',
   imageNamePhoto: 'samPhoto',
   gender: 'M',
@@ -43,14 +43,14 @@ var users = [{
   language: 'any',
   avatar: 'sam.jpg'
 },{
-  name: 'Aaron',
+  name: 'Aaron the Immortal',
   imageName: 'aaron',
   imageNamePhoto: 'aaronPhoto',
   gender: 'M',
   workWell: 'yes',
   saveWho: 'mom',
-  specialty: 'Full-Stack',
-  language: 'Javascript',
+  specialty: 'fullstack',
+  language: 'javascript',
   avatar: 'aaron.jpg'
 }, {
   name: 'Zenon',
@@ -61,9 +61,9 @@ var users = [{
   saveWho: 'mom',
   specialty: 'frontend',
   language: 'javascript',
-  avatar: 'britney_warrior.png'
+  avatar: 'britney.png'
 }, {
-  name: 'Annaka Annihilator',
+  name: 'Annaka Annihilator the Jedi',
   imageName: 'annaka',
   imageNamePhoto: 'annakaPhoto',
   gender: 'F',
@@ -81,19 +81,19 @@ var users = [{
   saveWho: 'mom',
   specialty: 'design',
   language: 'css',
-  avatar: 'fiona_warrior.jpg'
+  avatar: 'fiona.jpg'
 }, {
-  name: 'Myotis',
+  name: 'Myotis the Tactician',
   imageName: 'val',
   imageNamePhoto: 'valPhoto',
   gender: 'F',
   workWell: 'yes',
   saveWho: 'noanswer',
   specialty: 'pm',
-  language: 'python',
-  avatar: 'valerie.png'
+  language: 'javascript',
+  avatar: 'val.png'
 }, {
-  name: 'Canuck',
+  name: 'Canuck the Ninja',
   imageName: 'adrian',
   imageNamePhoto: 'adrianPhoto',
   gender: 'M',
@@ -103,7 +103,7 @@ var users = [{
   language: 'css',
   avatar: 'adrian.png'
 }, {
-  name: 'Shriekin Desperado',
+  name: 'Shriekin Desperado the Samurai',
   imageName: 'munir',
   imageNamePhoto: 'munirPhoto',
   gender: 'M',
@@ -113,7 +113,7 @@ var users = [{
   language: 'python',
   avatar: 'munir.png'
 },{
-  name: 'Pirate',
+  name: 'Chubaka the Pirate',
   imageName: 'taiwan',
   imageNamePhoto: 'taiwanPhoto',
   gender: 'M',
@@ -123,7 +123,7 @@ var users = [{
   language: 'javascript',
   avatar: 'taiwan.png'
 },{
-  name: 'Judy the Destroyer',
+  name: 'Judy the Destroyer Pirate',
   imageName: 'judy',
   imageNamePhoto: 'judyPhoto',
   gender: 'F',
@@ -133,7 +133,7 @@ var users = [{
   language: 'css',
   avatar: 'judy.png'
 },{
-  name: 'Baby Toddler',
+  name: 'I Need a Nap Ninja',
   imageName: 'britt',
   imageNamePhoto: 'brittPhoto',
   gender: 'F',
@@ -141,9 +141,9 @@ var users = [{
   saveWho: 'mom',
   specialty: 'fullstack',
   language: 'python',
-  avatar: 'britt_warrior.jpg'
+  avatar: 'britt.jpg'
 },{
-  name: 'Athena',
+  name: 'Athena the Samurai',
   imageName: 'maelle',
   imageNamePhoto: 'maellePhoto',
   gender: 'F',
@@ -162,6 +162,26 @@ var users = [{
   specialty: 'frontend',
   language: 'any',
   avatar: 'rachael.png'
+},{
+  name: 'Killa Keith the Lone Wolf',
+  imageName: 'keith',
+  imageNamePhoto: 'keithPhoto',
+  gender: 'M',
+  workWell: 'yes',
+  saveWho: 'mom',
+  specialty: 'frontend',
+  language: 'css',
+  avatar: 'keith.png'
+},{
+  name: 'Sera the Stealth Ninja',
+  imageName: 'sera',
+  imageNamePhoto: 'seraPhoto',
+  gender: 'F',
+  workWell: 'yes',
+  saveWho: 'mom',
+  specialty: 'frontend',
+  language: 'any',
+  avatar: 'sera.png'
 },];
 
 
@@ -239,7 +259,6 @@ addWarriors();
 
 // Load the selected warriors from the filters.
 window.addEventListener('load', function() {
-  // search();
   var searchBtn = document.getElementById('searchBtn');
   searchBtn.addEventListener('click', search);
   addWarriors();
@@ -285,14 +304,9 @@ container.addEventListener('click', function(e){
 });
 
 function addWarriors () {
-  var counter = 0;
   for (var i = 0; i < users.length; i++) {
-    console.log(users);
     currentWarrior = document.getElementById(users[i].imageNamePhoto);
     warriorNamesArray.push(currentWarrior);
-    // console.log('users array', users[i]);
-    console.log('index', i);
-    console.log('reference counter', counter++);
     document.getElementById(users[i].imageNamePhoto).addEventListener('click', handleImageSelection);
   };
 };
@@ -305,7 +319,6 @@ window.onload = function () {
     warriorDisplayNames = JSON.parse(localStorage.getItem('warriorDisplayNames'));
     for(var i = 0; i < selectedWarriors.length; i++) {
       var elImg = document.getElementById(selectedWarriors[i] + 'Photo');
-      console.log(selectedWarriors[i] + 'Photo');
       elImg.className = 'active';
       var elInput = document.getElementById(selectedWarriors[i]);
       elInput.checked = true;
@@ -347,11 +360,9 @@ function handleWarriorSubmit(event) {
   var activeWarriorNamesArray = [];
   for (var i = 0; i < warriorNamesArray.length; i++) {
     if (warriorNamesArray[i].className === 'active') {
-      console.log(warriorNamesArray[i]);
       activeWarriorNamesArray.push(warriorNamesArray[i].src);
     }
   }
-  console.log(activeWarriorNamesArray);
   var unique = activeWarriorNamesArray.filter(function(elem, index, self) {
     return index == self.indexOf(elem);
   });
