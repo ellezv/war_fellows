@@ -66,8 +66,8 @@ main {
   font-weight: bold;
 }
 
-button {
-  margin-top: 20px;
+.team_button {
+  margin-top: 150px;
   border: none;
   padding: 10px 67px;
   font-size: 18px;
@@ -78,7 +78,7 @@ button {
   transition: 350ms all;
 }
 
-button:hover {
+.team_button:hover {
   background: #555;
   color: #eee;
 }
