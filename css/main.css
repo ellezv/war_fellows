@@ -17,23 +17,27 @@
   transition:all .5s;
   left:40%
 }
+
 /* Video */
 .fullscreen-bg {
   position: relative;
   overflow: hidden;
 }
+
 .fullscreen-bg__video {
   position: relative;
   width: 100%;
   height: 100%;
   z-index: -100;
 }
+
 @media (max-aspect-ratio: 16/9) {
   .fullscreen-bg__video {
     width: 200%;
     left: -100%;
   }
 }
+
 @media (max-width: 1000px) {
   .fullscreen-bg {
     background: url('../img/main_background.jpg')
@@ -42,10 +46,12 @@
     min-height:650px;
     overflow: hidden;
   }
+
   .fullscreen-bg__video {
     display: none;
   }
-  #cta{
+
+  #cta {
     width:40%;
     height:40%;
   }
